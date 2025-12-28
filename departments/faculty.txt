@@ -1,0 +1,2343 @@
+// --- Anatomy ---
+{
+srno: 1,
+name: "Dr. Priya Roy",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-15941",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Ashish Khokhariya",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-49719",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Bharat Gujar",
+designation: "Assistant Professor",
+qual: "BDS & MSC (Med.)",
+ugReg: "A-4581",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Navinchandra P. Chauhan",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-35400",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Bharatkumar D Basvecha",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-15064",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Haresh Chaudhay",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "RMC-63481",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Smit Chaudhary",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-80554",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Gausvami Dhavalpuri Bhupendrapuri",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-81477",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Swati Naresh Modi",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G68665-",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Dr. Desai Galalbhai Naranbhai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "RMC-54474-P",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Mali Pratikkumar",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-78969",
+pgReg: ""
+},
+{
+srno: 12,
+name: "Dr. Patel Mukeshkumar Dalıyalal",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-71715",
+pgReg: ""
+}
+
+// --- Physiology ---
+{
+srno: 1,
+name: "Dr. Preeti Jain",
+designation: "Dean & Professor",
+qual: "MBBS, MD",
+ugReg: "G-36772",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Prema Ram Choudhary",
+designation: "Professor",
+qual: "MSC (Med.), Ph.D",
+ugReg: "Others",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Nilay Kapadia",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-45258",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Moghi Chaudhari",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-54922",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Tribhuwan Singh",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "47648",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Varsha Raysinghani",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-62209",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Narendra Chauhan",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-74498",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Mittal Shankarbhai Antiya",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-73374",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Rajendrakumar R. Chaudhari",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-80757",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Dr. Chaudhary Sureshkumar Malabhai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-92672",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Rahulkumar Dineshbhai Kachchhava",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G67830-",
+pgReg: ""
+}
+
+// --- Biochemistry ---
+{
+srno: 1,
+name: "Dr. Kirtikumar Navinchandra Dave",
+designation: "Professor",
+qual: "MSC (Med.), Ph.D",
+ugReg: "Others",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Ashish Patel",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-44091",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Birendra Yadav",
+designation: "Associate Professor",
+qual: "MSC (Med.), Ph.D",
+ugReg: "Others",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Kaushik Chaudhary",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-44856",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Mukul Sharma",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "RMC-2894",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Daxshkumar Desai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-71894",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Mr. Om Prakash Shyoron",
+designation: "Tutor",
+qual: "MSC (Med.)",
+ugReg: "Others",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Raval Shailesh Hardevbhai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-82716",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Mahammadmubin R. Sindhi",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-67862",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Dr. Parth Darji",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-76735",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Kaushikkumar K. Chaudhary",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-80049",
+pgReg: ""
+},
+{
+srno: 12,
+name: "Dr. Nitingiri Gauswami",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-98164",
+pgReg: ""
+}
+
+// --- Pharmacology ---
+{
+srno: 1,
+name: "Dr. Bhagya Sattigeri",
+designation: "Professor",
+qual: "MBBS & MD",
+ugReg: "KMC-32325",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Purvi Tannia",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-47152",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Sonali Gangadhar Naringrekar",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-57752",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Zalak Dalwadi",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-54350",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Jinal M. Modh",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-66675",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Rujuta C. Purohit",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-38347",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Mittal Chaudhary",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-59355",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Dhavalkumar Bhagvanbhai Parikh",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-81491",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Riyaj Masiya",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-75635",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Dr. Gosai Ankita Bharatbhai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "-55625",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Parthkumar Dinesh Trivedi",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "mc-63433",
+pgReg: ""
+},
+{
+srno: 12,
+name: "Dr. Pradipkumar R Chaudhary",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-86985",
+pgReg: ""
+},
+{
+srno: 13,
+name: "Dr. Kuniya Sachinkumar Bhikhabhai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-86523",
+pgReg: ""
+},
+{
+srno: 14,
+name: "Dr. Chaudhary Mitul Hareshkuma",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-83181",
+pgReg: ""
+},
+{
+srno: 15,
+name: "Dr. Dinesh Bhikabhai Chaudhary",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-62328",
+pgReg: ""
+},
+{
+srno: 16,
+name: "Dr. Nishit Gajera",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "",
+pgReg: ""
+},
+{
+srno: 17,
+name: "Dr. Keyur Patel",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-89387",
+pgReg: ""
+}
+
+// --- Pathology ---
+{
+srno: 1,
+name: "Dr. Chaudhary Sagar Bhurabhai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-90900",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Rippal Kumar Bhimani",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-57416",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Deepika Modi",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-55318",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Kanasagara Anandkumar Arvindbhai",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-43582",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Shailesh Patel",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-22939",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Bharat M. Chaudhari",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-34351",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Hiral Shah",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-47653",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Varsha Dhuliya",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-49373",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Monika Shroff",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-54850",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Dr. Chaudhary Khushbu Shamalbhai",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-59449",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Jalashree Rana",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-30387",
+pgReg: ""
+},
+{
+srno: 12,
+name: "Dr. Shreyangni A. Chaudhary",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-59512",
+pgReg: ""
+},
+{
+srno: 13,
+name: "Dr. Bhavi K. Patel",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G62022-",
+pgReg: ""
+},
+{
+srno: 14,
+name: "Dr. Patel Maitri Bharatbhai",
+designation: "Assistant Professor",
+qual: "MBBD, MD",
+ugReg: "G-66073",
+pgReg: ""
+},
+{
+srno: 15,
+name: "Dr. Amee Jayeshkumar Soni",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-58689",
+pgReg: ""
+},
+{
+srno: 16,
+name: "Dr. Patel Vandana Yashwantbhai",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "g-62988",
+pgReg: ""
+},
+{
+srno: 17,
+name: "Dr. Hina Jayantibhai Gami",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-63494",
+pgReg: ""
+},
+{
+srno: 18,
+name: "Dr. Manasvi Nareshkumar Patel",
+designation: "Senior Resident",
+qual: "MBBS, DCP, DNB",
+ugReg: "G-51709",
+pgReg: ""
+},
+{
+srno: 19,
+name: "Dr. Patel Pruthvi Vinodbhai",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G69975-",
+pgReg: ""
+},
+{
+srno: 20,
+name: "Dr. Manisha K. Chaudhary",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-66068",
+pgReg: ""
+},
+{
+srno: 21,
+name: "Dr. Jasminben Husainali Patel",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-65956",
+pgReg: ""
+},
+{
+srno: 22,
+name: "Dr. Chaudhary Kailash D.",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-91952",
+pgReg: ""
+},
+{
+srno: 23,
+name: "Dr. Manasiya Sahilbhai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "UP-104685",
+pgReg: ""
+},
+{
+srno: 24,
+name: "Dr. Chaudhary Miteshbhai K.",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-76945",
+pgReg: ""
+},
+{
+srno: 25,
+name: "Dr. Prajapati Shaileskumar Bhurabhai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-92882",
+pgReg: ""
+},
+{
+srno: 26,
+name: "Dr. Dhara Chaudhary",
+designation: "Tutor",
+qual: "MBBS, CPS",
+ugReg: "G-62219",
+pgReg: ""
+}
+
+// --- Forensic Medicine & Toxicology ---
+{
+srno: 1,
+name: "Dr. Kunjan Modi",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-45560",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Ganpat",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-35684",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Jawaharlal Chandani",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-28292",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Kajal D. Patel",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-61154",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Sindhi Parvej",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "28778",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Patel Jayeshkumar Jethabhai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-72195",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Chaudhary Vikramkumar Nagjibhai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-92364",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Chaudhary Chintankumar Kajabhai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-78014",
+pgReg: ""
+}
+
+// --- Community Medicine ---
+{
+srno: 1,
+name: "Dr. Pushti Vachhani",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-47976",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Nishant Bhimani",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-47921",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Jwalant Joshi",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-45227",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Punit G. Patel",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G45206-",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Niteshkumar M. Patel",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-53158",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Kirtikumar D. Rahul",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-43865",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Hardikkumar B. Yagnik",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-48401",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Parmar Rajan Kesaji",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-61359",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Darji Zamaben Pravin",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-66830",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Mr. Virender Kumar Yadav",
+designation: "Biostatistician",
+qual: "MSC (Biostate.)",
+ugReg: "Others",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Vikas M Chaudhary",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-67979",
+pgReg: ""
+},
+{
+srno: 12,
+name: "Dr. Rupal Chaudhary",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-67711",
+pgReg: ""
+},
+{
+srno: 13,
+name: "Dr. Rathod Vijay Laxman Sinh",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-86481",
+pgReg: ""
+},
+{
+srno: 14,
+name: "Dr. Trivedi Bhavikkumar Rajendrakumar",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-86600",
+pgReg: ""
+},
+{
+srno: 15,
+name: "Dr. Upma Saradarbhai Chaudhary",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-98992",
+pgReg: ""
+},
+{
+srno: 16,
+name: "Dr. Bhavesh N Chaudhary",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-91827",
+pgReg: ""
+},
+{
+srno: 17,
+name: "Dr. Bhatol Nensy Jayeshbhai",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-97274",
+pgReg: ""
+},
+{
+srno: 18,
+name: "Dr. Mamta Goswami",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-74796",
+pgReg: ""
+}
+
+// --- General Medicine ---
+{
+srno: 1,
+name: "Dr. Amrut P. Zala",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-42523",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Rajesh R. Patel",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-46412",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Shrijikumar C. Thakkar",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-63460",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Nirav Purohit",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-49397",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Amitkumar Vaghela",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-47443",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Bonybhai Sharvankumar Agrwal",
+designation: "Associate Professor",
+qual: "MBBS, DNB",
+ugReg: "G-54716",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Ashok Sodala",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-63033",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Akashkumar Khankar",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-52095",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Jitesh Agarawal",
+designation: "Assistant Professor",
+qual: "MBBS, MD, DM-Neuro",
+ugReg: "MCI/11-41037",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Dr. Dhruv Chaudhary",
+designation: "Assistant Professor",
+qual: "MBBS, DNB",
+ugReg: "G-49619",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Mehul Nanjibhai Chaudhary",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-62310",
+pgReg: ""
+},
+{
+srno: 12,
+name: "Dr. Karee Ajaykumar Jeevan",
+designation: "Assistant Professor",
+qual: "MBBS, MD, DM-Cardio",
+ugReg: "G67919-",
+pgReg: ""
+},
+{
+srno: 13,
+name: "Dr. Hardik Pravinbhai Chaudhary",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-58093",
+pgReg: ""
+},
+{
+srno: 14,
+name: "Dr. Nirali Kuldipkumar Chaudhary",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-76310",
+pgReg: ""
+},
+{
+srno: 15,
+name: "Dr. Patel Ashishkumar Mahendrabhai",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "R-2021/09/7394",
+pgReg: ""
+},
+{
+srno: 16,
+name: "Dr. Himalay Raval",
+designation: "Assistant Professor",
+qual: "MBBS, DNB",
+ugReg: "G-69834",
+pgReg: ""
+},
+{
+srno: 17,
+name: "Dr. Patel Niranjankumar Sardarbhai",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-33797",
+pgReg: ""
+},
+{
+srno: 18,
+name: "Dr. Patel Meeraben Bharatbhai",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-70641",
+pgReg: ""
+},
+{
+srno: 19,
+name: "Dr. Patel Pradipkumar Ganeshbhai",
+designation: "Senior Resident",
+qual: "MBBS, DNB",
+ugReg: "G-64653",
+pgReg: ""
+},
+{
+srno: 20,
+name: "Dr. Jay Patel",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-71853",
+pgReg: ""
+},
+{
+srno: 21,
+name: "Dr. Maulikkumar Kantibhai Karpatiya",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-79618",
+pgReg: ""
+},
+{
+srno: 22,
+name: "Dr. Nilamben Kantibhai Sari",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-79247",
+pgReg: ""
+},
+{
+srno: 23,
+name: "Dr. Chaudhary Rameshbhai",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-77015",
+pgReg: ""
+},
+{
+srno: 24,
+name: "Dr. Shravansinh Karshnabhai Rajput",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-72847",
+pgReg: ""
+}
+
+// --- Paediatrics ---
+{
+srno: 1,
+name: "Dr. Solanki Bhavikkumar M",
+designation: "Tutor",
+qual: "MBBS",
+ugReg: "G-68596",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Ajit Shrivastava",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-39122",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Santoshkumar Roy",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-34575",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Bimal Barot",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-38083",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Priyankkumar A. Patel",
+designation: "Associate Professor",
+qual: "MBBS, DNB, DCH",
+ugReg: "G-49152",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Shah Bhavi Vipulkumar",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-55817",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Asha V. Patel",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-55892",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Sachin A Patel",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-58905",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Vikrambhai N Mali",
+designation: "Assistant Professor",
+qual: "MBBS, DNB",
+ugReg: "G-68045",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Dr. Harshida Jayantibhai Vagdoda",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-68831",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Patel Nalin Laxmichandbhai",
+designation: "Senior Resident",
+qual: "MBBS, CPS, DNB",
+ugReg: "G-59453",
+pgReg: ""
+},
+{
+srno: 12,
+name: "Dr. Shreyashkumar L. Patel",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-59938",
+pgReg: ""
+},
+{
+srno: 13,
+name: "Dr. Kotadiya Ekta Shankarbhai",
+designation: "Senior Resident",
+qual: "MBBS, DCH, DNB",
+ugReg: "G-58589",
+pgReg: ""
+},
+{
+srno: 14,
+name: "Dr. Arati Gelot",
+designation: "Senior Resident",
+qual: "MBBS, CPS, DNB",
+ugReg: "G-61518",
+pgReg: ""
+},
+{
+srno: 15,
+name: "Dr. Kathit Dikesh Gohel",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-73215",
+pgReg: ""
+},
+{
+srno: 16,
+name: "Dr. Chaudhary Mitul Jasubhai",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-75088",
+pgReg: ""
+}
+
+// --- Respiratory Medicine ---
+{
+srno: 1,
+name: "Dr. Chaudhary Vikramkumar Vasharambhai",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-74804",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Brijesh Chauhan",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-46207",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Ninama Manisha Shankarbhai",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-51503",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Manju Nagjibhai Makwana",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-60193",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Harshil Desai",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-64521",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Pankti Naik",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-61362",
+pgReg: ""
+},
+
+// --- Dermatology ---
+{
+srno: 1,
+name: "Dr. Sachin L. Patel",
+designation: "Associate Professor",
+qual: "MBBS, DTCD",
+ugReg: "G/54349",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Priyanka Sondarva",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-51088",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Parmar Glory Nicholson",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-59603",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Narendra Gupta",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-15822",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Dineshbhai Dalabhai Chaudhary",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-64838",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Chaudhary Ankita Chelbhai",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-65162",
+pgReg: ""
+}
+
+// --- Psychiatry ---
+{
+srno: 1,
+name: "Dr. Dipakkumar Chaudhary",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G69402-",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Atul Chaudhary",
+designation: "Associate Professor",
+qual: "MBBS, DDVL",
+ugReg: "G-19813",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Mangla Prashant Mohan Shyam",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-63253",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Devendra Chaudhary",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-35283",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Dhruv Chaudhary",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-49619",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Rujul Modi",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-57986",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Patel Punit Valjibhai",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-64977",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Niraj Prakashbhai Patel",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-67338",
+pgReg: ""
+}
+
+// --- General Surgery ---
+{
+srno: 1,
+name: "Dr. Radheshyam Modi",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-70643",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Pavanben Paragbhai Chaudhary",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-36176",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Jayesh Modi",
+designation: "Professor",
+qual: "MBBS, MS, DNB-URO",
+ugReg: "G-30708",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Rajesh Jegoda",
+designation: "Professor",
+qual: "MBBS, MS",
+ugReg: "G-40711",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Vipul Yagnik",
+designation: "Professor",
+qual: "MBBS, MS",
+ugReg: "G-30734",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Sunil Joshi",
+designation: "Professor",
+qual: "MBBS, MS",
+ugReg: "G-12096",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Hiren Judal",
+designation: "Professor",
+qual: "MBBS, MS",
+ugReg: "G-27661",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Yogesh Swami",
+designation: "Professor",
+qual: "MBBS, MS, DNB-URO",
+ugReg: "G-50771",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Vasant K Ganatra",
+designation: "Professor",
+qual: "MBBS, MS",
+ugReg: "G-14948",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Dr. Rajesh H. Majithiya",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-33792",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Vishal K. Balat",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-36281",
+pgReg: ""
+},
+{
+srno: 12,
+name: "Dr. Ramkrishna D. Darji",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-50878",
+pgReg: ""
+},
+{
+srno: 13,
+name: "Dr. Ravi P Desai",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-19846",
+pgReg: ""
+},
+{
+srno: 14,
+name: "Dr. Sureshkumar Patel",
+designation: "Associate Professor",
+qual: "MBBS, MS, MCH-CVTS",
+ugReg: "G-11518",
+pgReg: ""
+},
+{
+srno: 15,
+name: "Dr. Kalpesh K. Patel",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-55228",
+pgReg: ""
+},
+{
+srno: 16,
+name: "Dr. Modh Foram Arvindbhai",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-53637",
+pgReg: ""
+},
+{
+srno: 17,
+name: "Dr. Chirag Doshi",
+designation: "Assistant Professor",
+qual: "MBBS, MS, MCH-URO",
+ugReg: "G-17785",
+pgReg: ""
+},
+{
+srno: 18,
+name: "Dr. Sameer Marediya",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-54917",
+pgReg: ""
+},
+{
+srno: 19,
+name: "Dr. Aimanhusen Payala",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-62123",
+pgReg: ""
+},
+{
+srno: 20,
+name: "Dr. Kamleshkumar Ramabhai Patel",
+designation: "Assistant Professor",
+qual: "MBBS, MS, MCH-URO",
+ugReg: "G-49847",
+pgReg: ""
+},
+{
+srno: 21,
+name: "Dr. Amrut M Chaudhari",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-65602",
+pgReg: ""
+},
+{
+srno: 22,
+name: "Dr. Sarthak Shah",
+designation: "Assistant Professor",
+qual: "MBBS, DNB-CVTS",
+ugReg: "G-48956",
+pgReg: ""
+},
+{
+srno: 23,
+name: "Dr. Patel Jaykumar Amarabhai",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-62825",
+pgReg: ""
+},
+{
+srno: 24,
+name: "Dr. Harsh Trivedi",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-54721",
+pgReg: ""
+},
+{
+srno: 25,
+name: "Dr. Sureshbhai Dajabbhai Patel",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-30167",
+pgReg: ""
+},
+{
+srno: 26,
+name: "Dr. Chaudhary Rekhaben Pratapbhai",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-74859",
+pgReg: ""
+},
+{
+srno: 27,
+name: "Dr. Chaudhary Narendra Harsangbhai",
+designation: "Senior Resident",
+qual: "MBBS",
+ugReg: "G-69743",
+pgReg: ""
+},
+{
+srno: 28,
+name: "Dr. Jinal M. Thakkar",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-65841",
+pgReg: ""
+},
+{
+srno: 29,
+name: "Dr. Sanjay Patel",
+designation: "Senior Resident",
+qual: "MBBS, DNB",
+ugReg: "G-53000",
+pgReg: ""
+},
+{
+srno: 30,
+name: "Dr. Sarthak Sharma",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-70992",
+pgReg: ""
+},
+{
+srno: 31,
+name: "Dr. Nupur M. Parmar",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-75486",
+pgReg: ""
+},
+{
+srno: 32,
+name: "Dr. Chaudhary Hardik M",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-78913",
+pgReg: ""
+},
+{
+srno: 33,
+name: "Dr. Patel Kautuk Narehkumar",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-78913",
+pgReg: ""
+}
+
+// --- Orthopaedics ---
+{
+srno: 1,
+name: "Dr. Anil J. Nayak",
+designation: "Professor",
+qual: "MBBS, MS",
+ugReg: "G-17311",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Ashif Suthar",
+designation: "Professor",
+qual: "MBBS, MS",
+ugReg: "G-36542",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Kalpesh H. Patel",
+designation: "Professor",
+qual: "MBBS, MS",
+ugReg: "G-32983",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Ajay Yadav",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-38236",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Pravin Patel",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-23862",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Milan R. Modi",
+designation: "Associate Professor",
+qual: "MBBS, DNB",
+ugReg: "G-30311",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Parth Trivedi",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-45074",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Ashish Purohit",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "127159",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Dhaval Prajapati",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-62134",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Dr. Naresh Chaudhary",
+designation: "Assistant Professor",
+qual: "MBBS, MS, DNB",
+ugReg: "G-71670",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Parmar Nihar Jitendra",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-38485",
+pgReg: ""
+},
+{
+srno: 12,
+name: "Dr. Navendu Ranjan",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "22705",
+pgReg: ""
+},
+{
+srno: 13,
+name: "Dr. Prashant A. Modi",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-71525",
+pgReg: ""
+},
+{
+srno: 14,
+name: "Dr. Shah Darshit K",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-70064",
+pgReg: ""
+},
+{
+srno: 15,
+name: "Dr. Dhairya G. Shah",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-71103",
+pgReg: ""
+},
+{
+srno: 16,
+name: "Dr. Desai Devendrabhai Somabhai",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-66633",
+pgReg: ""
+},
+{
+srno: 17,
+name: "Dr. Mitul Modi",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-67537",
+pgReg: ""
+},
+{
+srno: 18,
+name: "Dr. Shah Viraj Kishorbhai",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-79322",
+pgReg: ""
+},
+{
+srno: 19,
+name: "Dr. Vishank Patel",
+designation: "Junior Resident",
+qual: "MBBS, CPS",
+ugReg: "G-56928",
+pgReg: ""
+}
+
+// --- ENT / Otorhinolaryngology ---
+{
+srno: 1,
+name: "Dr. Devendra Jain",
+designation: "Professor",
+qual: "MBBS, MS",
+ugReg: "2008/04/1461",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Sadhna",
+designation: "Professor",
+qual: "MBBS, MS",
+ugReg: "33519",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Manish Patel",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-36955",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Kaushal Prajapati",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-49795",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Hardika B. Patel",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-62631",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Shilpa Parmar",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G64164-",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Dharmendra Solanki",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-57670",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Himani Chaudhary",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-62596",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Oza Niharika Keshavbhai",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-70612",
+pgReg: ""
+}
+
+// --- Ophthalmology ---
+{
+srno: 1,
+name: "Dr. Paresh Parikh",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-18782",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Rahul Bakhda",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "g-32950",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Priyesh J. Shroff",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-68799",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Priyanka Jagmalbhai Kharadi",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-66273",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Alokit Sharma",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "RMC-48367",
+pgReg: ""
+}
+
+// --- Obstetrics & Gynaecology ---
+{
+srno: 1,
+name: "Dr. Jayshri Majithiya",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-33794",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Manish Maheshwari",
+designation: "Associate Professor",
+qual: "MBBS, DGO, DNB",
+ugReg: "G-41419",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Asmita Solanki",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-1782625/12/1984",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Bhavesh Nayak",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-33193",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Rahulkumar L. Patel",
+designation: "Associate Professor",
+qual: "MBBS, MS",
+ugReg: "G-54058",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Nilpa Shah",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-29999",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Khanjan Harishbhai Maheshwari",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-32419",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Kantilal Tailor",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-16544",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Haresh Amarabhai Chaudhary",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-62874",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Dr. Ronakkumar Dilipbhai Karnavat",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-61198",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Gautam R. Unagar",
+designation: "Assistant Professor",
+qual: "MBBS, MS",
+ugReg: "G-15176",
+pgReg: ""
+},
+{
+srno: 12,
+name: "Dr. Prajapati Prashant Govindbhai",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-16286",
+pgReg: ""
+},
+{
+srno: 13,
+name: "Dr. Manisha Chaudhari",
+designation: "Senior Resident",
+qual: "MBBS, DGO",
+ugReg: "G47309-",
+pgReg: ""
+},
+{
+srno: 14,
+name: "Dr. Nishith D. Jansari",
+designation: "Senior Resident",
+qual: "MBBS, CPS, DNB",
+ugReg: "G-59416",
+pgReg: ""
+},
+{
+srno: 15,
+name: "Dr. Vishva S. Gandhi",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-69961",
+pgReg: ""
+},
+{
+srno: 16,
+name: "Dr. Shubhang Mangal",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-80715",
+pgReg: ""
+},
+{
+srno: 17,
+name: "Dr. Sachinkumar Dineshbhai Prajapati",
+designation: "Senior Resident",
+qual: "MBBS, MS",
+ugReg: "G-71307",
+pgReg: ""
+}
+
+// --- Anaesthesiology ---
+{
+srno: 1,
+name: "Dr. Himanshu Shah (M.S)",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-30788",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Ketan M. Modi",
+designation: "Professor",
+qual: "MBBS, MD",
+ugReg: "G-20437",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Gauravkumar Prajapati",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-47229",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Prashant Chaudhary",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-39167",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Jignesh D Patel",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-44306",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Deepak Mangal",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-22308",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Shweta J. Narsingani",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-53711",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Patel Sachinkumar Mukeshkumar",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-54273",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Sandeepkumar Dhuliya",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "g-58834",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Dr. Upendrakumar N. Parmar",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-53876",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Riddhi Dilipkumar Sompura",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-61548",
+pgReg: ""
+},
+{
+srno: 12,
+name: "Dr. Dhavalkumar Jivrambhai Salvi",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-64827",
+pgReg: ""
+},
+{
+srno: 13,
+name: "Dr. Patel Dixitkumar",
+designation: "Assistant Professor",
+qual: "MBBS, MD",
+ugReg: "G-64461",
+pgReg: ""
+},
+{
+srno: 14,
+name: "Dr. Keta Patel",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-63912",
+pgReg: ""
+},
+{
+srno: 15,
+name: "Dr. Nilam K. Dalal",
+designation: "Senior Resident",
+qual: "MBBS, PGDA",
+ugReg: "G-42840",
+pgReg: ""
+},
+{
+srno: 16,
+name: "Dr. Patel Riteshkumar M",
+designation: "Senior Resident",
+qual: "MBBS, DNB",
+ugReg: "G-54206",
+pgReg: ""
+},
+{
+srno: 17,
+name: "Dr. Asha Kavar",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-65432",
+pgReg: ""
+},
+{
+srno: 18,
+name: "Dr. Vandanaba Lakhdhirsinh Rathod",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-49236",
+pgReg: ""
+},
+{
+srno: 19,
+name: "Dr. Modi Parthkumar Nitinkumar",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-72870",
+pgReg: ""
+},
+{
+srno: 20,
+name: "Dr. Popatiya Shreya S",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-80495",
+pgReg: ""
+},
+{
+srno: 21,
+name: "Dr. Vansola Vaibhav Girishkumar",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-69843",
+pgReg: ""
+},
+{
+srno: 22,
+name: "Dr. Kaushalya Jamabhai Rathod",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-70546",
+pgReg: ""
+}
+
+// --- Radiology ---
+{
+srno: 1,
+name: "Dr. Sanjay Patel",
+designation: "Professor",
+qual: "MBBS, DNB",
+ugReg: "G-53000",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Guruprasad Vaghela",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-18621",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Sanjay Prajapati",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-43499",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Hareshkumar Vagdoda",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-49417",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Pinakin Patel",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-21257",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Srajan Dashore",
+designation: "Associate Professor",
+qual: "MBBS, MD",
+ugReg: "G-60855",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Satish Patel",
+designation: "Senior Resident",
+qual: "MBBS, DMRD",
+ugReg: "G-54869",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Dhrumal Kumar R. Patel",
+designation: "Senior Resident",
+qual: "MBBS, MD",
+ugReg: "G-70342",
+pgReg: ""
+}
+
+// --- Dentistry ---
+{
+srno: 1,
+name: "Dr. Swati Sathaye",
+designation: "Professor",
+qual: "BDS, MDS",
+ugReg: "A-850",
+pgReg: ""
+},
+{
+srno: 2,
+name: "Dr. Jigar Thakkar",
+designation: "Associate Professor",
+qual: "BDS, MDS",
+ugReg: "A-6471",
+pgReg: ""
+},
+{
+srno: 3,
+name: "Dr. Jignesh Maheswari",
+designation: "Associate Professor",
+qual: "BDS, MDS",
+ugReg: "A-8185",
+pgReg: ""
+},
+{
+srno: 4,
+name: "Dr. Sunil Shrof",
+designation: "Assistant Professor",
+qual: "BDS, MDS",
+ugReg: "A-8971",
+pgReg: ""
+},
+{
+srno: 5,
+name: "Dr. Rajvi K. Upadhyay",
+designation: "Assistant Professor",
+qual: "BDS, MDS",
+ugReg: "A-15914",
+pgReg: ""
+},
+{
+srno: 6,
+name: "Dr. Urvashi Dashore",
+designation: "Senior Resident",
+qual: "BDS, MDS",
+ugReg: "A-248931",
+pgReg: ""
+},
+{
+srno: 7,
+name: "Dr. Arati P. Chaudhary",
+designation: "Junior Resident",
+qual: "BDS",
+ugReg: "A-23868",
+pgReg: ""
+},
+{
+srno: 8,
+name: "Dr. Pushpa Chaudhary",
+designation: "Junior Resident",
+qual: "BDS",
+ugReg: "A-11196",
+pgReg: ""
+},
+{
+srno: 9,
+name: "Dr. Twinkle K. Chaudhary",
+designation: "Junior Resident",
+qual: "BDS",
+ugReg: "A-17472",
+pgReg: ""
+},
+{
+srno: 10,
+name: "Dr. Umang Modi",
+designation: "Junior Resident",
+qual: "BDS",
+ugReg: "A-19276",
+pgReg: ""
+},
+{
+srno: 11,
+name: "Dr. Nehalben Amrutlal Vadnathani",
+designation: "Junior Resident",
+qual: "BDS",
+ugReg: "A-14312",
+pgReg: ""
+}

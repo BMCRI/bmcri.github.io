@@ -222,6 +222,11 @@
     width: 100%;
     opacity: 0.5;
   }
+  .copyright-bar {
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+  }
   .nav-list {
     position: fixed;
     top: var(--header-height);

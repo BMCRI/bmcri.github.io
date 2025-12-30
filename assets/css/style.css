@@ -790,7 +790,7 @@ select {
   letter-spacing: 1px;
   color: var(--accent);
 }
-/* Warning Grid Layout */
+
 .warning-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -798,9 +798,7 @@ select {
   margin-bottom: 60px;
 }
 
-/* Base Alert Card - Blur Removed */
 .alert-card {
-  /* background is defined in specific classes below to layer the gradient */
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
   padding: 30px;
@@ -811,13 +809,10 @@ select {
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
-  /* Blur filters removed as requested */
 }
 
-/* MCI Warning - Yellow/Orange Theme */
 .alert-mci {
   border-left: 5px solid #fbbf24;
-  /* Gradient layered ON TOP of the standard card color */
   background: linear-gradient(
       90deg,
       rgba(251, 191, 36, 0.05) 0%,
@@ -843,10 +838,8 @@ select {
   color: var(--text-main);
 }
 
-/* Statutory Warning - Red Theme */
 .alert-statutory {
   border-left: 5px solid #ef4444;
-  /* Gradient layered ON TOP of the standard card color */
   background: linear-gradient(
       90deg,
       rgba(239, 68, 68, 0.05) 0%,
@@ -872,7 +865,6 @@ select {
   color: #f87171;
 }
 
-/* Light Theme Adjustments */
 [data-theme="light"] .alert-mci h4 {
   color: #d97706;
 }
@@ -880,6 +872,7 @@ select {
 [data-theme="light"] .alert-statutory p {
   color: #b91c1c;
 }
+
 .activities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

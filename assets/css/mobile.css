@@ -397,7 +397,7 @@
   }
   .trustee-card {
     width: 100%;
-    max-width: 350px;
+    max-width: 225px;
   }
   .trust-card-flex {
     flex-direction: column-reverse;

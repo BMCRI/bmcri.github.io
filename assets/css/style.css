@@ -1016,8 +1016,8 @@ textarea {
   }
 }
 .trustee-card {
-  min-width: 250px;
-  width: 250px;
+  min-width: 225px;
+  width: 225px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);

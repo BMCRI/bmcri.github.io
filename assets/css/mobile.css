@@ -10,9 +10,6 @@
   .mobile-hide {
     display: none !important;
   }
-  body {
-    padding-top: var(--header-height);
-  }
   .glass-nav {
     position: fixed;
     top: 0;
@@ -430,6 +427,7 @@
   }
   .hero-slideshow-container {
     height: 280px;
+    margin-top: 0 !important;
   }
 }
 @media (max-width: 768px) {

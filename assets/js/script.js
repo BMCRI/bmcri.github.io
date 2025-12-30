@@ -97,40 +97,55 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // 5. COMPONENT LOADER
+    // 5. COMPONENT LOADER (FIXED)
     const loadComponents = async () => {
-        const fetchHtml = async (file) => {
-            const response = await fetch(baseUrl + file);
-            return response.ok ? await response.text() : null;
-        };
+        const fetchHtml = (file) => fetch(baseUrl + file).then(res => res.ok ? res.text() : null);
 
-        const headerHtml = await fetchHtml('header.html');
-        const footerHtml = await fetchHtml('footer.html');
+        // Identify the main content area
         const mainContentArea = document.getElementById("main-content-area");
 
-        if (headerHtml) {
-            document.getElementById('global-header').innerHTML = headerHtml;
-            fixRelativeLinks();
-            initializeNavigation();
-        }
+        // Determine if we need to load homepage content (only if main area exists and is empty)
+        const needsMainContent = mainContentArea && !mainContentArea.innerHTML.trim();
 
-        if (footerHtml) {
-            document.getElementById('global-footer').innerHTML = footerHtml;
-            fixRelativeLinks();
-            const yearSpan = document.getElementById("current-year");
-            if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-        }
+        // Start all fetches in parallel
+        const headerPromise = fetchHtml('header.html');
+        const footerPromise = fetchHtml('footer.html');
+        const homepagePromise = needsMainContent ? fetchHtml('homepage.html') : Promise.resolve(null);
 
-        if (mainContentArea) {
-            try {
-                const homepageResponse = await fetch(baseUrl + "homepage.html");
-                if (homepageResponse.ok) {
-                    mainContentArea.innerHTML = await homepageResponse.text();
-                    fixRelativeLinks();
-                    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-                    initializeSlideshow();
-                }
-            } catch (error) { console.error(error); }
+        try {
+            // Wait for ALL data to arrive before rendering anything
+            const [headerHtml, footerHtml, homepageHtml] = await Promise.all([
+                headerPromise,
+                footerPromise,
+                homepagePromise
+            ]);
+
+            // 1. Inject Header
+            if (headerHtml) {
+                document.getElementById('global-header').innerHTML = headerHtml;
+                fixRelativeLinks();
+                initializeNavigation();
+            }
+
+            // 2. Inject Main Content
+            if (homepageHtml && mainContentArea) {
+                mainContentArea.innerHTML = homepageHtml;
+                fixRelativeLinks();
+                // Initialize homepage-specific observers/scripts
+                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+                initializeSlideshow();
+            }
+
+            // 3. Inject Footer (Now guaranteed to be after content)
+            if (footerHtml) {
+                document.getElementById('global-footer').innerHTML = footerHtml;
+                fixRelativeLinks();
+                const yearSpan = document.getElementById("current-year");
+                if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+            }
+
+        } catch (error) {
+            console.error("Error loading components:", error);
         }
     };
 
@@ -139,22 +154,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
         document.querySelectorAll(".nav-list a").forEach(link => {
-            // Check if this link points to the current page
             if (link.getAttribute("href")?.endsWith(currentPath)) {
-
-                // 1. Highlight the direct link (e.g. "Anatomy")
                 link.classList.add("active");
-
-                // 2. Highlight the immediate parent submenu trigger (e.g. "Preclinical")
-                // We look for the closest parent list item that acts as a submenu wrapper
                 const parentSubmenu = link.closest(".has-submenu");
                 if (parentSubmenu) {
-                    // Find the direct child link of that list item
                     const submenuTrigger = parentSubmenu.querySelector(":scope > a");
                     if (submenuTrigger) submenuTrigger.classList.add("active");
                 }
-
-                // 3. Highlight the top-level menu item (e.g. "Department")
                 const mainNavItem = link.closest(".nav-item");
                 if (mainNavItem) {
                     const mainNavTrigger = mainNavItem.querySelector(".nav-link");
@@ -163,7 +169,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Mobile Menu Toggles
         const menuBtn = document.querySelector(".mobile-menu-toggle");
         const navList = document.querySelector(".nav-list");
         const sidebarOverlay = document.getElementById("sidebar-overlay");
@@ -180,13 +185,10 @@ document.addEventListener("DOMContentLoaded", () => {
             menuBtn.onclick = (e) => { e.stopPropagation(); toggleMenu(); };
             if (sidebarOverlay) sidebarOverlay.onclick = () => toggleMenu(true);
 
-            // Handle Dropdowns on Mobile
             navList.onclick = (e) => {
                 const link = e.target.closest("a");
                 if (!link) return;
-
                 const nextSibling = link.nextElementSibling;
-                // Check if the link has a dropdown menu or submenu immediately after it
                 if (nextSibling && (nextSibling.matches('.dropdown-menu') || nextSibling.matches('.dropdown-submenu'))) {
                     e.preventDefault();
                     e.stopPropagation();

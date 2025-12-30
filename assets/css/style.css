@@ -82,7 +82,7 @@ button {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 auto;
 }
 .flex-between {
   display: flex;
@@ -733,7 +733,7 @@ select {
 }
 .main-content {
   padding-top: 40px;
-  padding-bottom: 60px;
+  padding-bottom: auto;
 }
 .hero-grid {
   display: grid;
@@ -1046,12 +1046,12 @@ select {
   grid-template-columns: 350px 1fr;
   gap: 40px;
   align-items: start;
-  margin-bottom: 60px;
-  padding-bottom: 40px;
+  margin-bottom: 40px;
+  padding-bottom: auto;
 }
 .ms-divider {
-  margin-top: 60px;
-  padding-top: 60px;
+  margin-top: 40px;
+  padding-top: 40px;
   border-top: 1px solid var(--border-color);
 }
 .profile-section:last-child {
@@ -1259,7 +1259,7 @@ select {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 .dept-section {
-  margin-bottom: auto;
+  margin-bottom: 40px;
 }
 .dept-grid-weighted {
   display: grid;

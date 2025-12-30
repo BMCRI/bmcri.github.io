@@ -671,10 +671,23 @@ textarea {
   backdrop-filter: blur(4px);
   outline: 0;
 }
-.slide-btn:hover {
+/* REPLACE the existing .slide-btn:hover block with this: */
+
+/* 1. Only hover on devices with a mouse/pointer */
+@media (hover: hover) {
+  .slide-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-50%) scale(1.1);
+  }
+}
+
+/* 2. Use :active for touch devices (instant feedback when tapping) */
+.slide-btn:active {
   background: var(--primary);
   border-color: var(--primary);
   transform: translateY(-50%) scale(1.1);
+  transition: transform 0.1s ease; /* Snappy response for touch */
 }
 .slide-btn.prev {
   left: 20px;
@@ -1597,7 +1610,7 @@ textarea {
 }
 .copyright-bar {
   border-top: 1px solid var(--border-color);
-  padding: 10px;
+  padding: 15px;
   padding-left: 2%;
   padding-right: 2%;
   background: rgba(37, 99, 235, 0.1);

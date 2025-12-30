@@ -88,24 +88,20 @@
   .mobile-menu-toggle.active i::before {
     content: "\f00d";
   }
-  /* Style the Mobile Theme Toggle Icon to look like Social Icons */
   #mobile-theme-toggle i {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 36px;
     height: 36px;
-    background: rgba(59, 130, 246, 0.1); /* Light Blue Background */
-    border: 1px solid var(--border-color); /* Blue Border */
-    border-radius: 50%; /* Circle shape */
-    color: var(--primary); /* Blue Icon Color */
-    font-size: 0.95rem; /* Adjust icon size */
-    opacity: 1; /* Remove default transparency */
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 0.95rem;
+    opacity: 1;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15); /* Soft Glow */
   }
-
-  /* Add a "Click" effect */
   #mobile-theme-toggle:active i {
     transform: scale(0.95);
     background: var(--primary);

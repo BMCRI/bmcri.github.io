@@ -158,18 +158,13 @@ button {
   opacity: 1;
   transform: translateY(0);
 }
-/* 1. Update the Main Toggle Button Styles */
 .theme-toggle {
   position: fixed;
-  /* Move to Bottom Left */
   top: auto;
   bottom: 20px;
   left: 20px;
   right: auto;
-
-  /* Ensure it sits on top of the Footer/Copyright bar */
   z-index: 9999;
-
   width: 40px;
   height: 40px;
   border-radius: 20px;
@@ -184,29 +179,23 @@ button {
   justify-content: center;
   gap: 0;
   overflow: hidden;
-
-  /* Add transition for the rotation */
   transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), padding 0.4s ease,
     gap 0.4s ease, background-color 0.3s, bottom 0.3s ease;
 }
-
-/* 2. Add Rotation to the Icon itself */
 .theme-toggle i {
   flex-shrink: 0;
-  transition: transform 0.4s ease; /* Smooth rotation */
+  transition: transform 0.4s ease;
 }
-
-/* 3. Hover Effects: Expand Right, Rotate Icon */
 .theme-toggle:hover {
-  width: 150px; /* Expand to the right */
-  padding-left: 5px; /* Adjust text spacing */
+  width: 150px;
+  padding-left: 5px;
   gap: 12px;
   border-color: var(--primary);
   background: rgba(255, 255, 255, 0.15);
 }
 
 .theme-toggle:hover i {
-  transform: rotate(25deg); /* Slight rotation on hover */
+  transform: rotate(25deg);
 }
 
 .theme-toggle::after {
@@ -217,8 +206,6 @@ button {
   white-space: nowrap;
   opacity: 0;
   max-width: 0;
-
-  /* Animate text appearing from the right */
   transform: translateX(10px);
   transition: all 0.3s ease;
 }
@@ -229,7 +216,7 @@ button {
   transform: translateX(0);
 }
 .theme-toggle.lift-up {
-  bottom: 90px !important; /* Lifts it above the copyright bar */
+  bottom: 90px !important;
 }
 #global-header {
   min-height: 80px;

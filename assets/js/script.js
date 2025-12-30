@@ -157,8 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             themeBtn.classList.remove('lift-up');
                         }
                     }, {
-                        root: null, // viewport
-                        threshold: 0.1 // Trigger as soon as 10% of the bar is visible
+                        root: null,
+                        threshold: 0.1
                     });
 
                     footerObserver.observe(copyrightBar);

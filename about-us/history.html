@@ -137,22 +137,25 @@
 
       .history-grid-layout {
         grid-template-columns: 1fr;
-        /* Stack vertically */
         gap: 40px;
       }
 
       .history-col-right {
         flex-direction: row;
-        /* Images side-by-side on mobile */
         justify-content: center;
         flex-wrap: wrap;
         gap: 20px;
       }
 
       .history-col-right figure {
-        width: 30%;
-        /* fit two in a row */
+        width: 45%;
         min-width: 140px;
+        max-width: 200px;
+      }
+
+      .history-col-right img {
+        width: 100%;
+        height: auto;
       }
     }
   </style>

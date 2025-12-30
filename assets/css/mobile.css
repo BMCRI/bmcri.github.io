@@ -434,8 +434,8 @@
 }
 @media (max-width: 768px) {
   .container-wide {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
   }
   .logo-glass {
     width: 70px;

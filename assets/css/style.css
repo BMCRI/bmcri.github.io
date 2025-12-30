@@ -24,9 +24,9 @@
   --glow-opacity: 0.5;
   --card-blur: 20px;
 }
-.mobile-only-nav,
+.dropdown-menu,
 .dropdown-submenu,
-.dropdown-menu {
+.mobile-only-nav {
   display: none;
 }
 * {
@@ -225,8 +225,8 @@ button {
 a,
 button,
 input,
-textarea,
-select {
+select,
+textarea {
   -webkit-tap-highlight-color: transparent;
   outline: 0;
 }
@@ -447,8 +447,8 @@ select {
   transition: all 0.3s;
   border-bottom: 2px solid transparent;
 }
-.nav-link:hover,
-.nav-link.active {
+.nav-link.active,
+.nav-link:hover {
   background: rgba(255, 255, 255, 0.05);
   color: var(--primary);
   border-bottom-color: var(--primary);
@@ -548,9 +548,9 @@ select {
   color: var(--primary) !important;
   font-weight: 700;
 }
-.mobile-menu-toggle,
 .mobile-branding,
 .mobile-footer-extras,
+.mobile-menu-toggle,
 .sidebar-header,
 .sidebar-overlay {
   display: none;
@@ -790,14 +790,12 @@ select {
   letter-spacing: 1px;
   color: var(--accent);
 }
-
 .warning-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   margin-bottom: 60px;
 }
-
 .alert-card {
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
@@ -810,17 +808,15 @@ select {
   position: relative;
   overflow: hidden;
 }
-
 .alert-mci {
   border-left: 5px solid #fbbf24;
   background: linear-gradient(
       90deg,
-      rgba(251, 191, 36, 0.05) 0%,
+      rgba(251, 191, 36, 0.05) 0,
       transparent 100%
     ),
     var(--bg-card);
 }
-
 .alert-mci h4 {
   font-family: var(--font-heading);
   font-size: 1.3rem;
@@ -831,23 +827,20 @@ select {
   letter-spacing: 0.5px;
   color: #fbbf24;
 }
-
 .alert-mci p {
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--text-main);
 }
-
 .alert-statutory {
   border-left: 5px solid #ef4444;
   background: linear-gradient(
       90deg,
-      rgba(239, 68, 68, 0.05) 0%,
+      rgba(239, 68, 68, 0.05) 0,
       transparent 100%
     ),
     var(--bg-card);
 }
-
 .alert-statutory h4 {
   font-family: var(--font-heading);
   font-size: 1.3rem;
@@ -858,13 +851,11 @@ select {
   letter-spacing: 0.5px;
   color: #f87171;
 }
-
 .alert-statutory p {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #f87171;
 }
-
 [data-theme="light"] .alert-mci h4 {
   color: #d97706;
 }
@@ -872,16 +863,12 @@ select {
 [data-theme="light"] .alert-statutory p {
   color: #b91c1c;
 }
-
 .activities-grid {
   display: grid;
-  /* STRICT 3 Columns for Homepage (3+3 layout) */
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
   margin-bottom: 60px;
 }
-
-/* NEW Modifier Class for Citizen Charter (2+2 layout) */
 .grid-2-col {
   grid-template-columns: repeat(2, 1fr) !important;
 }
@@ -1046,8 +1033,8 @@ select {
   margin-bottom: 5px;
   font-size: 1.05rem;
 }
-.profile-section,
-.profile-grid {
+.profile-grid,
+.profile-section {
   display: grid;
   grid-template-columns: 350px 1fr;
   gap: 40px;
@@ -1095,8 +1082,8 @@ select {
   margin: 0 auto 25px;
   position: relative;
 }
-.profile-img,
-.faculty-avatar {
+.faculty-avatar,
+.profile-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1113,15 +1100,15 @@ select {
   margin: 0 auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.person-name,
-.dean-name {
+.dean-name,
+.person-name {
   font-family: var(--font-heading);
   font-size: 1.4rem;
   margin-bottom: 10px;
   color: var(--text-main);
 }
-.person-designation,
-.dean-designation {
+.dean-designation,
+.person-designation {
   color: var(--primary);
   font-weight: 600;
   text-transform: uppercase;
@@ -1420,7 +1407,7 @@ select {
   transform: translateX(-50%);
   width: 60%;
   height: 300px;
-  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--primary) 0, transparent 70%);
   opacity: 0.15;
   filter: blur(80px);
   pointer-events: none;
@@ -1516,8 +1503,8 @@ select {
   font-size: 0.95rem;
   margin-bottom: 4px;
 }
-.footer-contact-text span,
-.footer-contact-text a {
+.footer-contact-text a,
+.footer-contact-text span {
   color: var(--text-secondary);
   font-size: 0.9rem;
   line-height: 1.5;
@@ -1535,8 +1522,8 @@ select {
   color: var(--text-secondary);
   font-size: 0.9rem;
 }
-.footer-contact-text .contact-line a,
-.footer-contact-text .contact-line .label-text {
+.footer-contact-text .contact-line .label-text,
+.footer-contact-text .contact-line a {
   display: inline-block !important;
   width: auto !important;
   margin: 0 !important;
@@ -1624,8 +1611,8 @@ select {
   font-size: 0.85rem;
 }
 @media (max-width: 900px) {
-  .profile-section,
-  .profile-grid {
+  .profile-grid,
+  .profile-section {
     grid-template-columns: 1fr;
     gap: 30px;
   }

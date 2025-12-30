@@ -449,6 +449,10 @@
   .warning-grid {
     grid-template-columns: 1fr;
   }
+  .activities-grid,
+  .grid-2-col {
+    grid-template-columns: 1fr !important;
+  }
   .copyright-bar {
     flex-direction: column;
     text-align: center;

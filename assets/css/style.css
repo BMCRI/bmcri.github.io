@@ -875,9 +875,15 @@ select {
 
 .activities-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  /* STRICT 3 Columns for Homepage (3+3 layout) */
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
   margin-bottom: 60px;
+}
+
+/* NEW Modifier Class for Citizen Charter (2+2 layout) */
+.grid-2-col {
+  grid-template-columns: repeat(2, 1fr) !important;
 }
 .activity-card {
   background: var(--bg-card);

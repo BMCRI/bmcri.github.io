@@ -733,7 +733,7 @@ select {
 }
 .main-content {
   padding-top: 40px;
-  padding-bottom: auto;
+  padding-bottom: 20px;
 }
 .hero-grid {
   display: grid;
@@ -1259,7 +1259,7 @@ select {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 .dept-section {
-  margin-bottom: 40px;
+  margin-bottom: auto;
 }
 .dept-grid-weighted {
   display: grid;

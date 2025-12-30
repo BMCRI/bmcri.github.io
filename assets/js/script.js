@@ -1,64 +1,231 @@
 document.addEventListener("DOMContentLoaded", () => {
     "use strict";
-    // 1. BASE CALCULATION
-    const c = document.querySelector('link[href*="style.css"]'), BASE = c ? c.getAttribute("href").split("assets/css/style.css")[0] || "./" : "./";
-    console.log("Base:", BASE);
 
-    // 2. HELPER: FIX LINKS
-    const fix = () => {
-        document.querySelectorAll('#global-header a[href], #global-footer a[href], #global-header img[src], #global-footer img[src]').forEach(e => {
-            const a = e.tagName === 'IMG' ? 'src' : 'href', v = e.getAttribute(a);
-            if (!v || /^(http|\/\/|mailto:|tel:|#|data:)/.test(v)) return;
-            let p = v.replace(/^(\.?\/)/, ''); while (p.startsWith('../')) p = p.substring(3);
-            e.setAttribute(a, BASE + p);
-        })
+    // 1. BASE URL CALCULATION
+    // Determines the root path of the site relative to the CSS file location
+    const cssLink = document.querySelector('link[href*="style.css"]');
+    const baseUrl = cssLink ? cssLink.getAttribute("href").split("assets/css/style.css")[0] || "./" : "./";
+    console.log("Base URL:", baseUrl);
+
+    // 2. HELPER: FIX RELATIVE LINKS
+    // Ensures links and images point to the correct path based on baseUrl
+    const fixRelativeLinks = () => {
+        const elementsToFix = document.querySelectorAll('#global-header a[href], #global-footer a[href], #global-header img[src], #global-footer img[src]');
+
+        elementsToFix.forEach(element => {
+            const attributeName = element.tagName === 'IMG' ? 'src' : 'href';
+            const currentValue = element.getAttribute(attributeName);
+
+            // Skip external links, anchors, mailto, etc.
+            if (!currentValue || /^(http|\/\/|mailto:|tel:|#|data:)/.test(currentValue)) return;
+
+            // Clean up path (remove ./ and ../)
+            let cleanPath = currentValue.replace(/^(\.?\/)/, '');
+            while (cleanPath.startsWith('../')) {
+                cleanPath = cleanPath.substring(3);
+            }
+
+            element.setAttribute(attributeName, baseUrl + cleanPath);
+        });
     };
 
-    // 3. SCROLL REVEAL
-    const obs = new IntersectionObserver(e => { e.forEach(n => { if (n.isIntersecting) { n.target.classList.add('active'); obs.unobserve(n.target) } }) }, { threshold: .1 });
-    setTimeout(() => document.querySelectorAll('.reveal').forEach(e => obs.observe(e)), 100);
+    // 3. SCROLL REVEAL ANIMATION
+    // Adds 'active' class to elements when they scroll into view
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, { threshold: 0.1 });
 
-    // 4. SLIDESHOW
-    const initSlide = async () => {
-        const box = document.getElementById("dynamic-slideshow"); if (!box) return;
-        const run = () => {
-            const s = box.querySelectorAll(".hero-slide"); if (!s.length) return;
-            let c = 0, t; const show = n => { s[c].classList.remove("active"); c = (n + s.length) % s.length; s[c].classList.add("active") };
-            const start = () => t = setInterval(() => show(c + 1), 5000), reset = () => { clearInterval(t); start() };
-            const nb = box.querySelector(".next"), pb = box.querySelector(".prev");
-            if (nb) nb.onclick = e => { e.stopPropagation(); show(c + 1); reset() }; if (pb) pb.onclick = e => { e.stopPropagation(); show(c - 1); reset() };
-            start();
+    // Initial trigger for reveal elements
+    setTimeout(() => {
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }, 100);
+
+    // 4. SLIDESHOW LOGIC
+    const initializeSlideshow = async () => {
+        const slideshowContainer = document.getElementById("dynamic-slideshow");
+        if (!slideshowContainer) return;
+
+        const runSlideshow = () => {
+            const slides = slideshowContainer.querySelectorAll(".hero-slide");
+            if (!slides.length) return;
+
+            let currentIndex = 0;
+            let slideInterval;
+
+            const showSlide = (newIndex) => {
+                slides[currentIndex].classList.remove("active");
+                // Calculate next index looping around
+                currentIndex = (newIndex + slides.length) % slides.length;
+                slides[currentIndex].classList.add("active");
+            };
+
+            const startAutoPlay = () => {
+                slideInterval = setInterval(() => showSlide(currentIndex + 1), 5000);
+            };
+
+            const resetAutoPlay = () => {
+                clearInterval(slideInterval);
+                startAutoPlay();
+            };
+
+            // Setup Controls
+            const nextBtn = slideshowContainer.querySelector(".next");
+            const prevBtn = slideshowContainer.querySelector(".prev");
+
+            if (nextBtn) nextBtn.onclick = (e) => {
+                e.stopPropagation();
+                showSlide(currentIndex + 1);
+                resetAutoPlay();
+            };
+            if (prevBtn) prevBtn.onclick = (e) => {
+                e.stopPropagation();
+                showSlide(currentIndex - 1);
+                resetAutoPlay();
+            };
+
+            startAutoPlay();
         };
+
         try {
-            const r = await fetch(BASE + "assets/slideshow/slideshow.json"); if (!r.ok) throw 0;
-            let d = await r.json(); for (let i = d.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[d[i], d[j]] = [d[j], d[i]] }
-            const ov = box.querySelector(".slide-overlay");
-            d.forEach((src, i) => { const div = document.createElement("div"); div.className = `hero-slide ${i === 0 ? "active" : ""}`; div.innerHTML = `<img src="${BASE}assets/slideshow/${src}" alt="Slide" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>`; box.insertBefore(div, ov) });
-            run();
-        } catch (e) { console.warn("Slide Err", e); run() }
+            // Fetch images from JSON
+            const response = await fetch(baseUrl + "assets/slideshow/slideshow.json");
+            if (!response.ok) throw new Error("Failed to load slideshow JSON");
+
+            let images = await response.json();
+
+            // Fisher-Yates Shuffle (Randomize order)
+            for (let i = images.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [images[i], images[j]] = [images[j], images[i]];
+            }
+
+            const overlay = slideshowContainer.querySelector(".slide-overlay");
+
+            // Create slide elements
+            images.forEach((src, index) => {
+                const slideDiv = document.createElement("div");
+                slideDiv.className = `hero-slide ${index === 0 ? "active" : ""}`;
+                slideDiv.innerHTML = `<img src="${baseUrl}assets/slideshow/${src}" alt="Slide" ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>`;
+                slideshowContainer.insertBefore(slideDiv, overlay);
+            });
+
+            runSlideshow();
+
+        } catch (error) {
+            console.warn("Slideshow Error:", error);
+            // Even if fetch fails, try to run if there are hardcoded slides
+            runSlideshow();
+        }
     };
 
-    // 5. COMPONENT LOADER & NAV
-    const load = async () => {
-        const get = async f => { const r = await fetch(BASE + f); return r.ok ? await r.text() : null };
-        const h = await get('header.html'), f = await get('footer.html'), m = document.getElementById("main-content-area");
-        if (h) { document.getElementById('global-header').innerHTML = h; fix(); nav() }
-        if (f) { document.getElementById('global-footer').innerHTML = f; fix(); const y = document.getElementById("current-year"); if (y) y.textContent = new Date().getFullYear() }
-        if (m) { try { const r = await fetch(BASE + "homepage.html"); if (r.ok) { m.innerHTML = await r.text(); fix(); document.querySelectorAll('.reveal').forEach(e => obs.observe(e)); initSlide() } } catch (e) { console.error(e) } }
+    // 5. COMPONENT LOADER (Header/Footer/Home)
+    const loadComponents = async () => {
+        const fetchHtml = async (file) => {
+            const response = await fetch(baseUrl + file);
+            return response.ok ? await response.text() : null;
+        };
+
+        const headerHtml = await fetchHtml('header.html');
+        const footerHtml = await fetchHtml('footer.html');
+        const mainContentArea = document.getElementById("main-content-area");
+
+        if (headerHtml) {
+            document.getElementById('global-header').innerHTML = headerHtml;
+            fixRelativeLinks();
+            initializeNavigation();
+        }
+
+        if (footerHtml) {
+            document.getElementById('global-footer').innerHTML = footerHtml;
+            fixRelativeLinks();
+            const yearSpan = document.getElementById("current-year");
+            if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Special handling if we are on the homepage (load content dynamically)
+        if (mainContentArea) {
+            try {
+                const homepageResponse = await fetch(baseUrl + "homepage.html");
+                if (homepageResponse.ok) {
+                    mainContentArea.innerHTML = await homepageResponse.text();
+                    fixRelativeLinks();
+
+                    // Re-attach observers to new content
+                    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+                    initializeSlideshow();
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
     };
 
     // 6. NAVIGATION LOGIC
-    const nav = () => {
-        const path = window.location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll(".nav-list a").forEach(l => {
-            if (l.getAttribute("href")?.endsWith(path)) { l.classList.add("active"); l.closest(".nav-item")?.querySelector(".nav-link")?.classList.add("active") }
+    const initializeNavigation = () => {
+        // Highlight active link based on current URL
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+        document.querySelectorAll(".nav-list a").forEach(link => {
+            if (link.getAttribute("href")?.endsWith(currentPath)) {
+                link.classList.add("active");
+                // Also highlight parent if it's a dropdown
+                link.closest(".nav-item")?.querySelector(".nav-link")?.classList.add("active");
+            }
         });
-        const btn = document.querySelector(".mobile-menu-toggle"), list = document.querySelector(".nav-list"), over = document.getElementById("sidebar-overlay");
-        if (btn && list) {
-            const tog = f => { const a = f ? 0 : !list.classList.contains("active"); list.classList.toggle("active", a); btn.classList.toggle("active", a); if (over) over.classList.toggle("active", a); document.body.style.overflow = a ? "hidden" : "" };
-            btn.onclick = e => { e.stopPropagation(); tog() }; if (over) over.onclick = () => tog(!0);
-            list.onclick = e => { const l = e.target.closest("a"); if (!l) return; const s = l.nextElementSibling; if (s && (s.matches('.dropdown-menu') || s.matches('.dropdown-submenu'))) { e.preventDefault(); e.stopPropagation(); l.parentElement.classList.toggle("dropdown-active") } else { tog(!0) } }
+
+        // Mobile Menu Toggles
+        const menuBtn = document.querySelector(".mobile-menu-toggle");
+        const navList = document.querySelector(".nav-list");
+        const sidebarOverlay = document.getElementById("sidebar-overlay");
+
+        if (menuBtn && navList) {
+            const toggleMenu = (forceClose) => {
+                const isActive = forceClose ? false : !navList.classList.contains("active");
+
+                navList.classList.toggle("active", isActive);
+                menuBtn.classList.toggle("active", isActive);
+
+                if (sidebarOverlay) {
+                    sidebarOverlay.classList.toggle("active", isActive);
+                }
+
+                // Prevent background scrolling when menu is open
+                document.body.style.overflow = isActive ? "hidden" : "";
+            };
+
+            menuBtn.onclick = (e) => {
+                e.stopPropagation();
+                toggleMenu();
+            };
+
+            if (sidebarOverlay) {
+                sidebarOverlay.onclick = () => toggleMenu(true);
+            }
+
+            // Handle Dropdowns on Mobile
+            navList.onclick = (e) => {
+                const link = e.target.closest("a");
+                if (!link) return;
+
+                const nextSibling = link.nextElementSibling;
+                // If clicked link has a dropdown menu sibling
+                if (nextSibling && (nextSibling.matches('.dropdown-menu') || nextSibling.matches('.dropdown-submenu'))) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    link.parentElement.classList.toggle("dropdown-active");
+                } else {
+                    // Regular link, close menu
+                    toggleMenu(true);
+                }
+            };
         }
     };
-    load();
+
+    // Start loading the page components
+    loadComponents();
 });

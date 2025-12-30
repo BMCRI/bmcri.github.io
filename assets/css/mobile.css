@@ -354,6 +354,8 @@
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 30px;
     padding-bottom: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .hero-grid {
     grid-template-columns: 1fr;
@@ -422,6 +424,10 @@
   }
 }
 @media (max-width: 768px) {
+  .container-wide {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
   .logo-glass {
     width: 70px;
     height: 70px;

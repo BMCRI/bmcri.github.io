@@ -142,6 +142,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 fixRelativeLinks();
                 const yearSpan = document.getElementById("current-year");
                 if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+                // 4. Auto-lift Theme Toggle over Footer
+                const copyrightBar = document.querySelector('.copyright-bar');
+                const themeBtn = document.getElementById('theme-toggle');
+
+                if (copyrightBar && themeBtn) {
+                    const footerObserver = new IntersectionObserver((entries) => {
+                        const entry = entries[0];
+                        // If copyright bar is visible, add 'lift-up' class
+                        if (entry.isIntersecting) {
+                            themeBtn.classList.add('lift-up');
+                        } else {
+                            themeBtn.classList.remove('lift-up');
+                        }
+                    }, {
+                        root: null, // viewport
+                        threshold: 0.1 // Trigger as soon as 10% of the bar is visible
+                    });
+
+                    footerObserver.observe(copyrightBar);
+                }
+
             }
 
         } catch (error) {

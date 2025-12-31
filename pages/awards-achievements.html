@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awards & Achievements - BMCRI</title>
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="../assets/css/style.css" as="style">
+    <link rel="preload" href="../assets/css/mobile.css" as="style">
+    <link rel="preload" href="../assets/js/script.js" as="script">
+
+    <link rel="preload" href="../header.html" as="fetch" crossorigin>
+    <link rel="preload" href="../footer.html" as="fetch" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/mobile.css">
+    <script src="../assets/js/theme.js"></script>
+
+    <style>
+        /* Page Specific Styles */
+        .achievements-wrapper {
+            max-width: 1000px;
+            margin: 0 auto 60px auto;
+        }
+
+        .category-header {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .category-header i {
+            color: var(--accent);
+        }
+
+        /* Grid Layout */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .achievement-card {
+            background: var(--bg-card);
+
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .event-title {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .event-location {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* List of Wins */
+        .wins-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .win-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .medal-icon {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Medal Colors */
+        .medal-silver {
+            color: #C0C0C0;
+            border-color: #C0C0C0;
+            background: rgba(192, 192, 192, 0.1);
+        }
+
+        .medal-bronze {
+            color: #CD7F32;
+            border-color: #CD7F32;
+            background: rgba(205, 127, 50, 0.1);
+        }
+
+        .medal-gold {
+            color: #FFD700;
+            border-color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+        }
+
+        .win-details strong {
+            display: block;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .team-name {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--primary);
+            opacity: 0.9;
+        }
+
+        /* Academic Highlight Card */
+        .academic-card {
+            border-left: 4px solid var(--primary);
+        }
+
+        .student-name {
+            font-size: 1.3rem;
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .batch-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <div id="global-header"></div>
+
+    <div class="site-wrapper">
+        <main class="container-wide main-content fade-in">
+
+            <h2 class="section-title reveal">
+                <i class="fa-solid fa-trophy"></i> Awards & Achievements
+            </h2>
+
+            <div class="achievements-wrapper reveal">
+
+                <h3 class="category-header">
+                    <i class="fa-solid fa-user-graduate"></i> Academic Excellence
+                </h3>
+
+                <div class="cards-grid">
+                    <div class="achievement-card academic-card">
+                        <div>
+                            <h4 class="student-name">Aakbani Nagama Rafiqbhai</h4>
+                            <span class="batch-badge">Batch 2018</span>
+                        </div>
+
+                        <ul class="wins-list">
+                            <li class="win-item">
+                                <div class="medal-icon medal-gold"><i class="fa-solid fa-star"></i></div>
+                                <div class="win-details">
+                                    <strong>University Examination Topper (1st Year)</strong>
+                                    Held in August 2019
+                                </div>
+                            </li>
+                            <li class="win-item">
+                                <div class="medal-icon medal-gold"><i class="fa-solid fa-star"></i></div>
+                                <div class="win-details">
+                                    <strong>University Examination Topper (Final Year)</strong>
+                                    Held in January 2023
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="category-header">
+                    <i class="fa-solid fa-medal"></i> Sports & Cultural Accolades
+                </h3>
+
+                <div class="cards-grid">
+
+                    <div class="achievement-card">
+                        <div>
+                            <div class="event-title">Cosmos 2021</div>
+                            <span class="event-location">Cultural Event - GMERS Patan</span>
+                        </div>
+
+                        <ul class="wins-list">
+                            <li class="win-item">
+                                <div class="medal-icon medal-silver"><i class="fa-solid fa-trophy"></i></div>
+                                <div class="win-details">
+                                    <strong>Cricket (Silver Trophy)</strong>
+                                    <span class="team-name">Team "The Tough Ones"</span>
+                                </div>
+                            </li>
+                            <li class="win-item">
+                                <div class="medal-icon medal-bronze"><i class="fa-solid fa-medal"></i></div>
+                                <div class="win-details">
+                                    <strong>Badminton Singles (Bronze)</strong>
+                                    Winner: Patel Kevin
+                                </div>
+                            </li>
+                            <li class="win-item">
+                                <div class="medal-icon medal-bronze"><i class="fa-solid fa-medal"></i></div>
+                                <div class="win-details">
+                                    <strong>Badminton Doubles (Bronze)</strong>
+                                    Winners: Patel Kevin & Nipun Sinha
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div>
+                            <div class="event-title">Cosmos 2022</div>
+                            <span class="event-location">Cultural Event - GMERS Patan</span>
+                        </div>
+
+                        <ul class="wins-list">
+                            <li class="win-item">
+                                <div class="medal-icon medal-silver"><i class="fa-solid fa-trophy"></i></div>
+                                <div class="win-details">
+                                    <strong>Cricket (Silver Trophy)</strong>
+                                    <span class="team-name">College Team "The Tough Ones"</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div>
+                            <div class="event-title">Visnagar Cricket Tournament</div>
+                            <span class="event-location">Inter-College Sports</span>
+                        </div>
+
+                        <ul class="wins-list">
+                            <li class="win-item">
+                                <div class="medal-icon medal-bronze"><i class="fa-solid fa-trophy"></i></div>
+                                <div class="win-details">
+                                    <strong>Cricket (Bronze Trophy)</strong>
+                                    <span class="team-name">Team "Big Bitters"</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div>
+                            <div class="event-title">Horizon 2022</div>
+                            <span class="event-location">PSMC, Karamsad</span>
+                        </div>
+
+                        <ul class="wins-list">
+                            <li class="win-item">
+                                <div class="medal-icon medal-silver"><i class="fa-solid fa-award"></i></div>
+                                <div class="win-details">
+                                    <strong>Volleyball (Runners Up)</strong>
+                                    College Student Team
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+        <div id="global-footer"></div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Achievements</title>
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/mobile.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <script src="../assets/js/theme.js"></script>
+
+    <style>
+        /* Page wrapper */
+        .achievements-wrapper {
+            max-width: 1200px;
+            /* Increased width for side-by-side layout */
+            margin: 0 auto 60px auto;
+        }
+
+        .category-header {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin: 0 0 20px 0;
+            /* Adjusted margin for grid alignment */
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Profile Left Sidebar Styling */
+        .profile-sidebar {
+            background: var(--bg-card);
+            backdrop-filter: blur(var(--card-blur));
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            height: fit-content;
+        }
+
+        .profile-details {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .detail-item {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 8px;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-item strong {
+            color: var(--text-main);
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        /* PDF Styles */
+        .pdf-viewer-container {
+            width: 100%;
+            height: 800px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 900px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+                /* Stack on mobile */
+                gap: 30px;
+            }
+
+            .profile-sidebar {
+                max-width: 100%;
+            }
+
+            .pdf-viewer-container {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <div id="global-header"></div>
+
+    <div class="site-wrapper">
+        <main class="container-wide main-content fade-in">
+
+            <h2 class="section-title reveal">
+                <i class="fa-solid fa-user-doctor"></i> Faculty Achievements
+            </h2>
+
+            <div class="achievements-wrapper reveal">
+
+                <div class="profile-grid">
+
+                    <div class="profile-sidebar">
+                        <div class="profile-img-container">
+                            <img src="../departments/general-surgery/5.jpg" alt="Dr. Vipul Yagnik" class="profile-img">
+                        </div>
+
+                        <h3 class="dean-name" style="text-align: center;">Dr. Vipul Yagnik</h3>
+                        <div class="dean-designation" style="text-align: center; margin-bottom: 20px;">Professor</div>
+
+                        <div class="profile-details">
+                            <div class="detail-item">
+                                <strong>Qualification</strong>
+                                MBBS, MS
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-content">
+                        <div class="table-container">
+                            <table class="glass-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fellowship / Credential</th>
+                                        <th>Association / Institution</th>
+                                        <th>Year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ACME</td>
+                                        <td>NMC (National Medical Commission)</td>
+                                        <td>2024</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FACS</td>
+                                        <td>American College of Surgeons</td>
+                                        <td>2023</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PGDCN</td>
+                                        <td>Amity University</td>
+                                        <td>2021</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MCICN</td>
+                                        <td>Medversity</td>
+                                        <td>2021</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FISCP</td>
+                                        <td>International Society of Colo-Proctology</td>
+                                        <td>2017</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FIAGES</td>
+                                        <td>Indian Association of Gastrointestinal Endosurgeons</td>
+                                        <td>2014</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FAIS</td>
+                                        <td>Association of Surgeons of India</td>
+                                        <td>2012</td>
+                                    </tr>
+                                    <tr>
+                                        <td>FMAS</td>
+                                        <td>Association of Minimal Access Surgeons of India</td>
+                                        <td>2008</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="category-header" style="margin-top: 50px;">
+                    <i class="fa-solid fa-file-lines"></i> Official Profile Document
+                </h3>
+                <div class="pdf-viewer-container">
+                    <iframe src="https://www.bmcri.co.in/wp-content/uploads/2024/11/Dr.-Yagnik-Vipul.pdf"
+                        class="pdf-frame" title="Dr. Vipul Yagnik Profile PDF">
+                        <p>Your browser does not support PDFs.
+                            <a href="https://www.bmcri.co.in/wp-content/uploads/2024/11/Dr.-Yagnik-Vipul.pdf">Download
+                                the PDF</a>.
+                        </p>
+                    </iframe>
+                </div>
+
+            </div>
+
+        </main>
+        <div id="global-footer"></div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

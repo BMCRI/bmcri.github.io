@@ -33,6 +33,11 @@
     align-items: center;
     gap: 12px;
   }
+  .mobile-branding a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
   .mobile-branding img {
     height: 45px;
     width: 45px;

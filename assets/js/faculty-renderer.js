@@ -1,11 +1,8 @@
 // Global function to handle image loading errors
-// Replaces broken images with a default "Doctor" icon avatar
 window.handleImageError = function (imgElement) {
-    // Create a replacement div
     const fallbackDiv = document.createElement("div");
     fallbackDiv.className = "faculty-avatar";
 
-    // Apply styles to match the original circular avatar look
     Object.assign(fallbackDiv.style, {
         display: "flex",
         alignItems: "center",
@@ -20,44 +17,38 @@ window.handleImageError = function (imgElement) {
         margin: "0 auto"
     });
 
-    // Add the doctor icon
     fallbackDiv.innerHTML = '<i class="fa-solid fa-user-doctor"></i>';
 
-    // Replace the broken image with the new div
     if (imgElement && imgElement.parentNode) {
         imgElement.parentNode.replaceChild(fallbackDiv, imgElement);
     }
 };
 
-// Function to render the faculty table based on JSON data
-function renderFacultyTable(facultyData, tableBodyId = "faculty-table-body") {
+// UPDATED: Added 'folderPath' parameter (default is empty)
+function renderFacultyTable(facultyData, tableBodyId = "faculty-table-body", folderPath = "") {
     const tableBody = document.getElementById(tableBodyId);
 
-    // clear execution if target doesn't exist or data is invalid
     if (!tableBody || !Array.isArray(facultyData)) return;
 
-    // Map through data and create HTML rows
     tableBody.innerHTML = facultyData.map((member, index) => {
         let registrationInfo = "";
 
-        // Format UG Registration
         if (member.ugReg && member.ugReg !== "-") {
             registrationInfo += `<span class="reg-label">UG:</span>${member.ugReg}`;
         }
 
-        // Format PG Registration
         if (member.pgReg) {
             if (registrationInfo) registrationInfo += "<br>";
             registrationInfo += `<span class="reg-label">PG:</span>${member.pgReg}`;
         }
 
-        // Return the table row HTML
+        // UPDATED: Prepend folderPath to the image src
         return `
             <tr>
                 <td style="text-align:center;">${index + 1}</td>
                 <td class="photo-col" style="text-align:center;">
                     <img 
-                        src="${member.srno}.jpg" 
+                        src="${folderPath}${member.srno}.jpg" 
                         alt="${member.name}" 
                         class="faculty-avatar" 
                         style="object-fit:cover;" 

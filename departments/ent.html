@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ENT - BMCRI</title>
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="../assets/css/style.css" as="style">
+    <link rel="preload" href="../assets/css/mobile.css" as="style">
+    <link rel="preload" href="../assets/js/script.js" as="script">
+
+    <link rel="preload" href="../header.html" as="fetch" crossorigin>
+    <link rel="preload" href="../footer.html" as="fetch" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/mobile.css">
+
+    <script src="../assets/js/theme.js"></script>
+</head>
+
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div id="global-header"></div>
+    <div class="site-wrapper">
+        <main class="container-wide main-content fade-in">
+
+            <h2 class="page-title reveal"><i class="fa-solid fa-ear-listen"></i> Department of ENT </h2>
+
+            <p class="dept-description reveal">
+                Providing comprehensive care for diseases related to the Ear, Nose, Throat, and Head & Neck surgery.
+                Committed to excellence in patient care, audiological services, and medical education.
+            </p>
+
+            <div class="vision-mission-grid reveal">
+                <div class="vm-card">
+                    <h3 class="vm-title"><i class="fa-regular fa-eye"></i> Vision</h3>
+                    <p>To be a center of excellence providing microsurgery and endoscopic solutions while training
+                        future specialists.</p>
+                </div>
+                <div class="vm-card">
+                    <h3 class="vm-title"><i class="fa-solid fa-bullseye"></i> Mission</h3>
+                    <p>To provide high-quality diagnostic services, conduct hearing research, and offer rehabilitation
+                        for speech disorders.</p>
+                </div>
+            </div>
+
+            <section class="reveal">
+                <div class="hero-grid">
+
+                    <article class="card card-tint-teal card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Infrastructure</h3>
+                            <div class="icon-circle-bg teal icon-sm"><i class="fa-solid fa-microscope"></i></div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-bed"></i> <strong>Facilities:</strong> Daily OPD & Inpatient
+                                Wards.</li>
+                            <li><i class="fa-solid fa-syringe"></i> <strong>OT:</strong> Microscopes & High-definition
+                                Endoscopes.</li>
+                            <li><i class="fa-solid fa-wave-square"></i> <strong>Audiology:</strong> Sound-treated rooms
+                                & Speech therapy.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-tint-purple card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Clinical Care</h3>
+                            <div class="icon-circle-bg purple icon-sm"><i class="fa-solid fa-head-side-mask"></i></div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-check-circle"></i> Tonsillectomy, Adenoidectomy, Tympanoplasty.
+                            </li>
+                            <li><i class="fa-solid fa-check-circle"></i> FESS (Endoscopic Sinus Surgery) &
+                                Mastoidectomy.</li>
+                            <li><i class="fa-solid fa-star-of-life"></i> Clinics for Vertigo, Cancer (Head/Neck) &
+                                Voice.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-tint-red card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Academics</h3>
+                            <div class="icon-circle-bg red icon-sm"><i class="fa-solid fa-graduation-cap"></i></div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-chalkboard-user"></i> Training in diagnostic and surgical skills.
+                            </li>
+                            <li><i class="fa-solid fa-bone"></i> Temporal Bone Dissection Workshops.</li>
+                            <li><i class="fa-solid fa-book"></i> Departmental Library & Museum.</li>
+                            <li><i class="fa-solid fa-chalkboard-user"></i> Clinical case presentations & Journal Clubs.
+                            </li>
+                        </ul>
+                    </article>
+
+                </div>
+            </section>
+
+            <section class="reveal section-spacing">
+                <h3 class="section-title">Faculty Members</h3>
+                <div class="table-container">
+                    <table class="glass-table">
+                        <thead>
+                            <tr>
+                                <th class="col-sr">Sr. No.</th>
+                                <th class="col-photo">Photo</th>
+                                <th class="col-name">Name</th>
+                                <th class="col-desig">Designation</th>
+                                <th class="col-qual">Qualifications</th>
+                                <th class="col-reg">Registration No.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="faculty-table-body"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <div id="global-footer"></div>
+    </div>
+    <script>window.SITE_BASE = '../';</script>
+    <script src="../assets/js/script.js" defer></script>
+    <script src="./ent/faculty-data.js"></script>
+    <script src="../assets/js/faculty-renderer.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFacultyTable(facultyData, 'faculty-table-body', './ent/');
+        });
+    </script>
+</body>
+
+</html>

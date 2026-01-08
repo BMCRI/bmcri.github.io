@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Microbiology - BMCRI</title>
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="../assets/css/style.css" as="style">
+    <link rel="preload" href="../assets/css/mobile.css" as="style">
+    <link rel="preload" href="../assets/js/script.js" as="script">
+
+    <link rel="preload" href="../header.html" as="fetch" crossorigin>
+    <link rel="preload" href="../footer.html" as="fetch" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/mobile.css">
+
+    <script src="../assets/js/theme.js"></script>
+</head>
+
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div id="global-header"></div>
+    <div class="site-wrapper">
+        <main class="container-wide main-content fade-in">
+
+            <h2 class="page-title reveal"><i class="fa-solid fa-bacteria"></i> Department of Microbiology </h2>
+
+            <p class="dept-description reveal">
+                The Microbiology department is managed by qualified faculty and technicians, committed to high-end
+                teaching, training, and diagnostic services. We create a conducive environment for research and
+                paramedical training.
+            </p>
+
+            <div class="vision-mission-grid reveal">
+                <div class="vm-card">
+                    <h3 class="vm-title"><i class="fa-regular fa-eye"></i> Vision</h3>
+                    <p>To be recognized as a center of excellence for Microbiology Practice, Education, Research &
+                        Clinical Service.</p>
+                </div>
+                <div class="vm-card">
+                    <h3 class="vm-title"><i class="fa-solid fa-bullseye"></i> Mission</h3>
+                    <p>To provide high-end diagnostic services and create a conducive environment for research and
+                        training.</p>
+                </div>
+            </div>
+
+            <section class="reveal">
+                <div class="hero-grid">
+
+                    <article class="card card-tint-teal card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Diagnostic Services</h3>
+                            <div class="icon-circle-bg teal icon-sm"><i class="fa-solid fa-vials"></i></div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-flask"></i> <strong>Central Lab:</strong> Bacteriology, Serology,
+                                Virology, Parasitology, Mycology.</li>
+                            <li><i class="fa-solid fa-dna"></i> <strong>Molecular Lab:</strong> RT-PCR for COVID-19,
+                                Hepatitis B & C Viral Load.</li>
+                            <li><i class="fa-solid fa-microscope"></i> Dedicated Research Laboratory.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-tint-purple card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Programs & Safety</h3>
+                            <div class="icon-circle-bg purple icon-sm"><i class="fa-solid fa-shield-virus"></i></div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-flag"></i> <strong>National Programs:</strong> NVHCP, ICTC (HIV),
+                                RNTCP (TB), IDSP.</li>
+                            <li><i class="fa-solid fa-hands-bubbles"></i> Hospital Infection Prevention & Control
+                                program.</li>
+                            <li><i class="fa-solid fa-prescription-bottle-medical"></i> Antibiotic Stewardship Program.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-tint-red card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Academics</h3>
+                            <div class="icon-circle-bg red icon-sm"><i class="fa-solid fa-graduation-cap"></i></div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-book-medical"></i> NMC curriculum focused on infectious disease
+                                history.</li>
+                            <li><i class="fa-solid fa-chalkboard-user"></i> Interactive lectures, tutorials &
+                                Self-directed learning.
+                            </li>
+                            <li><i class="fa-solid fa-skull"></i> Museum with mounted specimens.</li>
+                            <li><i class="fa-solid fa-book-open"></i> Departmental library (>100 books).</li>
+                        </ul>
+                    </article>
+
+                </div>
+            </section>
+
+            <section class="reveal section-spacing">
+                <h3 class="section-title">Faculty Members</h3>
+                <div class="table-container">
+                    <table class="glass-table">
+                        <thead>
+                            <tr>
+                                <th class="col-sr">Sr. No.</th>
+                                <th class="col-photo">Photo</th>
+                                <th class="col-name">Name</th>
+                                <th class="col-desig">Designation</th>
+                                <th class="col-qual">Qualifications</th>
+                                <th class="col-reg">Registration No.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="faculty-table-body"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <div id="global-footer"></div>
+    </div>
+    <script>window.SITE_BASE = '../';</script>
+    <script src="../assets/js/script.js" defer></script>
+    <script src="./microbiology/faculty-data.js"></script>
+    <script src="../assets/js/faculty-renderer.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFacultyTable(facultyData, 'faculty-table-body', './microbiology/');
+        });
+    </script>
+</body>
+
+</html>

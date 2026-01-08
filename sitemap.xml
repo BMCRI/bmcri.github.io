@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://bmcri.vercel.app/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/contact-us.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/career.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/events.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/about-us/history.html</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/about-us/services.html</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/about-us/gallery.html</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/activities/citizen-charter.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/activities/awards-achievements.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/activities/faculty-achievements.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/college/dean-profile.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/college/nmc-info.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/college/acpugmec.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/hospital/superintendent-profile.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/student-corner/student-corner-2025.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/anaesthesiology.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/anatomy.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/biochemistry.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/community-medicine.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/dentistry.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/dermatology.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/ent.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/forensic-medicine.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/general-medicine.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/general-surgery.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/microbiology.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/obg.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/ophthalmology.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/orthopaedics.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/pathology.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/pediatrics.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/pharmacology.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/physiology.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/psychiatry.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/radiology.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcri.vercel.app/departments/respiratory-medicine.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

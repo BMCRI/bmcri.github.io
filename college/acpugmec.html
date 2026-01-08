@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ACPUGMEC - BMCRI</title>
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="../assets/css/style.css" as="style">
+    <link rel="preload" href="../assets/css/mobile.css" as="style">
+    <link rel="preload" href="../assets/js/script.js" as="script">
+
+    <link rel="preload" href="../header.html" as="fetch" crossorigin>
+    <link rel="preload" href="../footer.html" as="fetch" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/mobile.css">
+    <script src="../assets/js/theme.js"></script>
+
+    <style>
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(var(--card-blur));
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .committee-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            line-height: 1.5;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details {
+            text-align: left;
+        }
+
+        .phone-number {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        .phone-number:hover {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .timing-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        @media(max-width: 600px) {
+            .contact-row {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                width: 100%;
+            }
+
+            .contact-details {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <div id="global-header"></div>
+
+    <div class="site-wrapper">
+        <main class="container-wide main-content fade-in">
+
+            <h2 class="page-title reveal">
+                <i class="fa-solid fa-building-columns"></i> ACPUGMEC Inquiry
+            </h2>
+
+            <div class="content-wrapper reveal">
+                <div class="info-card">
+
+                    <h3 class="committee-title">
+                        Admission Committee for Professional Undergraduate & Postgraduate Medical Educational Courses
+                    </h3>
+
+                    <div class="contact-row">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
+                        <div class="contact-details">
+                            <strong
+                                style="display:block; font-size: 0.9rem; color: var(--text-secondary); margin-bottom:4px; text-transform: uppercase; letter-spacing: 0.5px;">Helpline</strong>
+                            <a href="tel:+919265790738" class="phone-number">+91 92657 90738</a>
+                            <div class="timing-badge">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>10:00 AM to 04:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+        <div id="global-footer"></div>
+    </div>
+
+    <script>window.SITE_BASE = '../';</script>
+    <script src="../assets/js/script.js" defer></script>
+</body>
+
+</html>

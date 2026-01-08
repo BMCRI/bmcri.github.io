@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services – BMCRI</title>
+
+  <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="preload" href="../assets/css/style.css" as="style">
+  <link rel="preload" href="../assets/css/mobile.css" as="style">
+  <link rel="preload" href="../assets/js/script.js" as="script">
+
+  <link rel="preload" href="../header.html" as="fetch" crossorigin>
+  <link rel="preload" href="../footer.html" as="fetch" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/mobile.css">
+
+  <script src="../assets/js/theme.js"></script>
+  <style>
+    /* Reusing the card style from history.html */
+    .services-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(var(--card-blur));
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto 0;
+      line-height: 1.8;
+    }
+
+    .services-card h3 {
+      font-family: var(--font-heading);
+      margin-bottom: 20px;
+      color: var(--text-main);
+      font-size: 1.4rem;
+    }
+
+    .services-card h4 {
+      font-family: var(--font-heading);
+      color: var(--primary);
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .services-card p {
+      color: var(--text-secondary);
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    .services-list {
+      list-style-type: none;
+      counter-reset: service-counter;
+      padding-left: 0;
+    }
+
+    .services-list li {
+      position: relative;
+      padding-left: 40px;
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      text-align: justify;
+    }
+
+    .services-list li::before {
+      counter-increment: service-counter;
+      content: counter(service-counter) ".";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-family: var(--font-heading);
+    }
+
+    .services-list strong {
+      color: var(--text-main);
+    }
+
+    @media (max-width: 768px) {
+      .services-card {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div id="global-header"></div>
+  <div class="site-wrapper">
+    <main class="container-wide main-content fade-in">
+      <h2 class="page-title reveal"><i class="fa-solid fa-user-doctor"></i> Services</h2>
+      <div class="services-card reveal">
+        <h3>Initial Activities of Galbabhai Nanjibhai Patel Charitable Trust</h3>
+        <p> Under the banner of Galbabhai Nanjibhai Patel Charitable Trust, various activities are initiated and
+          organised keeping community services as the midpoint. Below are a few of the key initiatives. </p>
+        <h4>General Camps & Support</h4>
+        <p> During <strong>10/09/2016 to 16/09/2016</strong>, a service camp was organized at Danta for the devotees
+          going on foot to the Great Gathering at Ambaji Temple. </p>
+        <p> The Trust also provides technical and healthcare support to the Health Centre of the Banas Dairy Employees.
+        </p>
+        <h4>Healthcare Facilities & Beneficiaries</h4>
+        <p>Banas Dairy provides the following facilities to the beneficiaries through this initiative:</p>
+        <ol class="services-list">
+          <li>Totally free of cost consultation, treatment, and medicines to every patient.</li>
+          <li>Total <strong>3650 patients</strong> have been treated during the period of May-2016 to March-2017.</li>
+          <li>Trust has analyzed over <strong>141 blood sugar samples</strong> free of cost as part of a Diabetes
+            awareness drive during May-2016 to March-2017.</li>
+          <li>In a span of two months (January & February 2017), the Trust examined <strong>1245 employees</strong> as
+            part of a Group medical check-up.</li>
+          <li>As part of the holistic medicine project, the Trust has educated Dairy Employees about the benefits of
+            <strong>Yoga & Ayurvedic treatment</strong>.
+          </li>
+          <li>By continuous interaction, awareness towards food and nutrition has been enhanced in the community and
+            among dairy employees.</li>
+          <li>Health Demonstration was arranged on <strong>World Tobacco Abolish Day</strong>.</li>
+          <li>The monthly magazine <strong>Banas Patrika</strong> published by Banas Dairy covers human health-related
+            topics on Snake bite, Malaria, Diabetes, Infant-feeding, worm infestations, etc., towards community health.
+          </li>
+          <li>Rural awareness about <strong>MAA CARD</strong> is boosted. Total <strong>14,599 MAA CARDS</strong> were
+            issued in the special camps organized by the organization.</li>
+          <li><strong>Blood Donation Camp</strong> was organized on 15/02/2017 as a part of the Centurial birth
+            celebration year of late Shri Galbabhai Nanjibhai Patel.</li>
+          <li><strong>Rural Health Camps</strong> were organized at different villages to create awareness among people
+            about infant care, Anaemia, water-borne diseases due to contaminated water, importance of cleanliness, etc.
+            About <strong>1039 patients</strong> have been treated in 62 such camps organized till date.</li>
+          <li><strong>Free Denture camps</strong> were organized at Taluka level during 05/03/2017 to 29/03/2017 under
+            the National Oral Health Program. About <strong>2873 patients</strong> took benefit of this camp.</li>
+          <li>The Trust is planning to open a generic medicine store at Vav and a suitable application in this regard
+            has also been processed.</li>
+        </ol>
+      </div>
+    </main>
+    <div id="global-footer"></div>
+  </div>
+  <script>window.SITE_BASE = '../';</script>
+  <script src="../assets/js/script.js" defer></script>
+</body>
+
+</html>

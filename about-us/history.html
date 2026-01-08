@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History – BMCRI</title>
+
+  <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="preload" href="../assets/css/style.css" as="style">
+  <link rel="preload" href="../assets/css/mobile.css" as="style">
+  <link rel="preload" href="../assets/js/script.js" as="script">
+
+  <link rel="preload" href="../header.html" as="fetch" crossorigin>
+  <link rel="preload" href="../footer.html" as="fetch" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/mobile.css">
+
+  <script src="../assets/js/theme.js"></script>
+
+  <style>
+    /* Scoped CSS for History Page */
+
+    .history-card-container {
+      max-width: 900px;
+      margin: 0 auto 0;
+      padding: 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      backdrop-filter: blur(var(--card-blur));
+      box-shadow: var(--shadow-card);
+      line-height: 1.8;
+    }
+
+    /* 2-Column Grid Layout */
+    .history-grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 30px;
+      align-items: start;
+    }
+
+    /* --- Left Column Styling --- */
+    .history-col-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .history-logo-area {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 25px;
+    }
+
+    .history-logo-area img {
+      max-width: 180px;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    }
+
+    .history-content-text h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-family: var(--font-heading);
+      color: var(--primary);
+    }
+
+    .history-content-text p {
+      color: var(--text-secondary);
+      text-align: justify;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    /* --- Right Column Styling --- */
+    .history-col-right {
+      display: flex;
+      align-self: center;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .history-col-right figure {
+      margin: 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    .history-col-right img {
+      width: 175px;
+      aspect-ratio: 3.5/4;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 12px;
+      background: #fff;
+      padding: 6px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .history-col-right img:hover {
+      transform: translateY(-5px);
+    }
+
+    .history-col-right figcaption {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+      .history-card-container {
+        padding: 25px;
+      }
+
+      .history-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .history-col-right {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .history-col-right figure {
+        width: 45%;
+        min-width: 140px;
+        max-width: 200px;
+      }
+
+      .history-col-right img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <div id="global-header"></div>
+
+  <div class="site-wrapper">
+    <main class="container-wide main-content fade-in">
+
+      <h2 class="page-title reveal">
+        <i class="fa-solid fa-hourglass"></i> History
+      </h2>
+
+      <div class="history-card-container reveal">
+
+        <div class="history-grid-layout">
+
+          <div class="history-col-left">
+            <div class="history-logo-area">
+              <img src="../assets/GNPCT logo.png" alt="GNPCT Logo">
+            </div>
+
+            <div class="history-content-text">
+              <h3>Galbabhai Nanjibhai Patel Charitable Trust</h3>
+              <p>Late Galbabhai Nanjibhai Patel was the son of Smt. Hemaben and Shri Nanjibhai Patel, born at Nalasar
+                village, Vadgam Taluka of Banaskantha district, located in North Gujarat. He played an important and
+                pioneering role in the foundation of the dairy sector, with its headquarters at Palanpur.</p>
+              <p>The Trust was established on <strong>17 September 2016</strong> by Banas Dairy and approved under the
+                Bombay Public Trust Act, 1950, bearing Certificate No. <strong>E/1530</strong>.</p>
+              <p>An initial contribution of <strong>Rs. 1,51,000/-</strong> was made by the family of Shri Shankarbhai
+                Chaudhary, followed by an additional donation of <strong>Rs. 11 lakhs</strong>.</p>
+            </div>
+          </div>
+
+          <div class="history-col-right">
+            <figure>
+              <img src="../assets/images/gnp.jpg" alt="Late Shri Galbabhai Nanjibhai Patel">
+              <figcaption>Late Shri Galbabhai Nanjibhai Patel</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/images/SC.jpg" alt="Shri Shankarbhai Chaudhary">
+              <figcaption>Shri Shankarbhai Chaudhary</figcaption>
+            </figure>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <div id="global-footer"></div>
+  </div>
+
+  <script>window.SITE_BASE = '../';</script>
+  <script src="../assets/js/script.js" defer></script>
+</body>
+
+</html>

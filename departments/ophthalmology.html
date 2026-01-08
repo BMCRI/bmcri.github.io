@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ophthalmology - BMCRI</title>
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="../assets/css/style.css" as="style">
+    <link rel="preload" href="../assets/css/mobile.css" as="style">
+    <link rel="preload" href="../assets/js/script.js" as="script">
+    <link rel="preload" href="../header.html" as="fetch" crossorigin>
+    <link rel="preload" href="../footer.html" as="fetch" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/mobile.css">
+
+    <script src="../assets/js/theme.js"></script>
+
+    <style>
+        /* Card Layout Overrides */
+        .card-dept-left {
+            align-items: flex-start;
+            text-align: left;
+            height: 100%;
+        }
+
+        .card-dept-header {
+            width: 100%;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-dept-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        /* Smaller Icon for Cards */
+        .icon-sm {
+            width: 45px;
+            height: 45px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Vision & Mission Titles */
+        .vm-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .vm-title i {
+            margin-right: 10px;
+        }
+
+        /* Utilities */
+        .text-center {
+            text-align: center;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        /* Sunday Rotation Header - NEW STYLE */
+        .rotation-title {
+            border-left: 5px solid var(--primary);
+            /* Blue vertical bar */
+            padding-left: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 700;
+            /* Subtle fade to right */
+            background: linear-gradient(to right, rgba(59, 130, 246, 0.1), transparent);
+            border-radius: 0 8px 8px 0;
+            /* Curves the right side */
+        }
+
+        /* Sunday Rotation Grid */
+        .rotation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .rotation-card {
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .rotation-card:hover {
+            background: rgba(59, 130, 246, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .rotation-card strong {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .rotation-card span {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            opacity: 0.9;
+        }
+
+        [data-theme="light"] .rotation-card {
+            background: rgba(255, 255, 255, 0.6);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            .rotation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Faculty Table Columns */
+        .col-sr {
+            width: 8%;
+            text-align: center;
+        }
+
+        .col-photo {
+            width: 12%;
+            text-align: center;
+        }
+
+        .col-name {
+            width: 30%;
+            text-align: center;
+        }
+
+        .col-desig {
+            width: 15%;
+        }
+
+        .col-qual {
+            width: 15%;
+        }
+
+        .col-reg {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div id="global-header"></div>
+    <div class="site-wrapper">
+        <main class="container-wide main-content fade-in">
+
+            <h2 class="page-title reveal"><i class="fa-solid fa-eye"></i> Department of Ophthalmology </h2>
+
+            <p class="dept-description reveal">
+                Committed to providing the best services in the treatment of eye diseases. Offering a complete range of
+                examination, treatment, and surgical options.
+            </p>
+
+            <div class="vision-mission-grid reveal">
+                <div class="vm-card">
+                    <h3 class="vm-title"><i class="fa-regular fa-eye"></i> Vision</h3>
+                    <p>To lead innovation in patient care, developing Retinal, Glaucoma, and Cornea units, along with a
+                        functional eye bank.</p>
+                </div>
+                <div class="vm-card">
+                    <h3 class="vm-title"><i class="fa-solid fa-bullseye"></i> Mission</h3>
+                    <p>To provide a complete range of surgical options using the latest technologies, ensuring
+                        high-quality service for each patient.</p>
+                </div>
+            </div>
+
+            <section class="reveal">
+                <div class="hero-grid">
+
+                    <article class="card card-tint-teal card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Clinical Services</h3>
+                            <div class="icon-circle-bg teal icon-sm"><i class="fa-solid fa-glasses"></i></div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-check-circle"></i> General Ophthalmology & Vision Tests.</li>
+                            <li><i class="fa-solid fa-eye-dropper"></i> Glaucoma Treatment & School Health Check-ups.
+                            </li>
+                            <li><i class="fa-solid fa-hospital"></i> SICS and Phacoemulsification for cataract surgery.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-tint-purple card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Equipment</h3>
+                            <div class="icon-circle-bg purple icon-sm"><i class="fa-solid fa-microscope"></i></div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-magnifying-glass"></i> Auto Refractometer & Non-contact Tonometer.
+                            </li>
+                            <li><i class="fa-solid fa-wave-square"></i> A-scan Ultrasonography & Nd-Yag Laser.</li>
+                            <li><i class="fa-solid fa-lightbulb"></i> Surgical Microscopes.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-tint-red card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Outreach</h3>
+                            <div class="icon-circle-bg red icon-sm"><i class="fa-solid fa-truck-medical"></i></div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-truck-fast"></i> 24/7 Emergency care for trauma.</li>
+                            <li><i class="fa-solid fa-hand-holding-heart"></i> Functional eye collection center.</li>
+                            <li><i class="fa-solid fa-people-group"></i> Regular eye camps in nearby villages.</li>
+                        </ul>
+                    </article>
+
+                </div>
+            </section>
+
+            <section class="reveal section-spacing">
+                <h3 class="section-title">Unit Distribution</h3>
+                <div class="table-container">
+                    <table class="glass-table">
+                        <thead>
+                            <tr>
+                                <th width="10%" class="text-center">Unit</th>
+                                <th width="60%">Team</th>
+                                <th width="30%">OPD / Emergency Days</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center font-bold">1</td>
+                                <td>
+                                    <strong>Dr. Hasmukh Joshi</strong> (Professor)<br>
+                                    Dr. Bhagyashri Prajapati (AP)<br>
+                                    Dr. Ashok Chaudhary (SR)
+                                </td>
+                                <td>Monday, Wednesday & Friday</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center font-bold">2</td>
+                                <td>
+                                    <strong>Dr. Rahul Bakhda</strong> (AP)<br>
+                                    Dr. Aval Patel (SR)
+                                </td>
+                                <td>Tuesday, Thursday & Saturday</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="rotation-title">Sunday Emergency Rotation</h4>
+
+                <div class="rotation-grid">
+                    <div class="rotation-card">
+                        <strong>Unit 1</strong>
+                        <span>1st & 3rd Sunday</span>
+                    </div>
+                    <div class="rotation-card">
+                        <strong>Unit 2</strong>
+                        <span>2nd, 4th & 5th Sunday</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="reveal section-spacing">
+                <h3 class="section-title">Specialty Clinics</h3>
+                <div class="table-container">
+                    <table class="glass-table">
+                        <thead>
+                            <tr>
+                                <th width="15%">Day</th>
+                                <th width="30%">Specialty Clinic</th>
+                                <th width="35%">Faculty</th>
+                                <th width="20%">Timing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday - Saturday</td>
+                                <td>General OPD</td>
+                                <td>As per Roster</td>
+                                <td>9 AM – 5 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Monday</td>
+                                <td>ROP Clinic</td>
+                                <td>Dr. Ashok Chaudhary</td>
+                                <td>9 AM – 5 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>Glaucoma Clinic</td>
+                                <td>Dr. Bhagyashri Prajapati</td>
+                                <td>9 AM – 5 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>Disability Certificate</td>
+                                <td>Dr. Aval Patel</td>
+                                <td>9 AM – 5 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>Disability Certificate</td>
+                                <td>Dr. Bhagyashri Prajapati</td>
+                                <td>9 AM – 5 PM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="reveal section-spacing">
+                <h3 class="section-title">Faculty Members</h3>
+                <div class="table-container">
+                    <table class="glass-table">
+                        <thead>
+                            <tr>
+                                <th class="col-sr">Sr. No.</th>
+                                <th class="col-photo">Photo</th>
+                                <th class="col-name">Name</th>
+                                <th class="col-desig">Designation</th>
+                                <th class="col-qual">Qualifications</th>
+                                <th class="col-reg">Registration No.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="faculty-table-body"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <div id="global-footer"></div>
+    </div>
+    <script>window.SITE_BASE = '../';</script>
+    <script src="../assets/js/script.js" defer></script>
+    <script src="./ophthalmology/faculty-data.js"></script>
+    <script src="../assets/js/faculty-renderer.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFacultyTable(facultyData, 'faculty-table-body', './ophthalmology/');
+        });
+    </script>
+</body>
+
+</html>

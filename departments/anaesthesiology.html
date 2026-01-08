@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anaesthesiology - BMCRI</title>
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="../assets/css/style.css" as="style">
+    <link rel="preload" href="../assets/css/mobile.css" as="style">
+    <link rel="preload" href="../assets/js/script.js" as="script">
+    <link rel="preload" href="../header.html" as="fetch" crossorigin>
+    <link rel="preload" href="../footer.html" as="fetch" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/mobile.css">
+
+    <script src="../assets/js/theme.js"></script>
+</head>
+
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div id="global-header"></div>
+
+    <div class="site-wrapper">
+        <main class="container-wide main-content fade-in">
+
+            <h2 class="page-title reveal">
+                <i class="fa-solid fa-syringe"></i> Department of Anaesthesiology
+            </h2>
+
+            <p class="dept-description reveal">
+                The lifeline of the surgical wing, dedicated to ensuring patient safety and comfort. We provide
+                comprehensive perioperative care, manage the Surgical Intensive Care Unit (SICU), and offer
+                compassionate pain management services using the latest advancements in anesthesia safety.
+            </p>
+
+            <div class="vision-mission-grid reveal">
+                <div class="vm-card">
+                    <h3 class="vm-title"><i class="fa-regular fa-eye"></i> Vision</h3>
+                    <p>To be a center of excellence in perioperative medicine and critical care, ensuring the highest
+                        standards of patient safety and monitoring.</p>
+                </div>
+                <div class="vm-card">
+                    <h3 class="vm-title"><i class="fa-solid fa-bullseye"></i> Mission</h3>
+                    <p>To provide safe anesthesia for all specialties, train competent professionals in emergency
+                        management, and deliver compassionate pain relief.</p>
+                </div>
+            </div>
+
+            <section class="reveal">
+                <div class="hero-grid">
+
+                    <article class="card card-tint-teal card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Clinical Services</h3>
+                            <div class="icon-circle-bg teal icon-sm">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-check-circle"></i> General, Regional, Paediatric & Geriatric
+                                Anaesthesia.</li>
+                            <li><i class="fa-solid fa-person-pregnant"></i> Labour Analgesia & Obstetric Anaesthesia.
+                            </li>
+                            <li><i class="fa-solid fa-notes-medical"></i> <strong>PAC Clinic:</strong> Pre-operative
+                                optimization.</li>
+                            <li><i class="fa-solid fa-capsules"></i> <strong>Pain Clinic:</strong> Chronic pain
+                                management.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-tint-purple card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Infrastructure & ICU</h3>
+                            <div class="icon-circle-bg purple icon-sm">
+                                <i class="fa-solid fa-bed-pulse"></i>
+                            </div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-mask-ventilator"></i> Modular OTs with advanced workstations.</li>
+                            <li><i class="fa-solid fa-heart-pulse"></i> <strong>SICU:</strong> 24/7 Critical Care
+                                support.</li>
+                            <li><i class="fa-solid fa-video"></i> Video Laryngoscopes & Fibreoptic Bronchoscopes.</li>
+                            <li><i class="fa-solid fa-pump-medical"></i> High-end Ventilators & Infusion Pumps.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-tint-red card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Academics</h3>
+                            <div class="icon-circle-bg red icon-sm">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 10px;">
+                            Focusing on skill acquisition and emergency management.
+                        </p>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-angle-right"></i> BLS & ACLS Training Workshops.</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Simulation-based learning.</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Departmental Library & Case discussions.</li>
+                        </ul>
+                    </article>
+
+                </div>
+            </section>
+
+            <section class="reveal section-spacing">
+                <h3 class="section-title">Faculty Members</h3>
+                <div class="table-container">
+                    <table class="glass-table">
+                        <thead>
+                            <tr>
+                                <th class="col-sr">Sr. No.</th>
+                                <th class="col-photo">Photo</th>
+                                <th class="col-name">Name</th>
+                                <th class="col-desig">Designation</th>
+                                <th class="col-qual">Qualifications</th>
+                                <th class="col-reg">Registration No.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="faculty-table-body"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <div id="global-footer"></div>
+    </div>
+
+    <script>window.SITE_BASE = '../';</script>
+    <script src="../assets/js/script.js" defer></script>
+    <script src="./anaesthesiology/faculty-data.js"></script>
+    <script src="../assets/js/faculty-renderer.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFacultyTable(facultyData, 'faculty-table-body', './anaesthesiology/');
+        });
+    </script>
+</body>
+
+</html>

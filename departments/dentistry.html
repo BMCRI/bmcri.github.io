@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dentistry - BMCRI</title>
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="../assets/css/style.css" as="style">
+    <link rel="preload" href="../assets/css/mobile.css" as="style">
+    <link rel="preload" href="../assets/js/script.js" as="script">
+
+    <link rel="preload" href="../header.html" as="fetch" crossorigin>
+    <link rel="preload" href="../footer.html" as="fetch" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/mobile.css">
+
+    <script src="../assets/js/theme.js"></script>
+</head>
+
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div id="global-header"></div>
+    <div class="site-wrapper">
+        <main class="container-wide main-content fade-in">
+
+            <h2 class="page-title reveal"><i class="fa-solid fa-tooth"></i> Department of Dentistry </h2>
+
+            <p class="dept-description reveal">
+                Concerns the prevention and treatment of oral diseases, including teeth, supporting structures, and soft
+                tissues. We provide patient care to the underprivileged using state-of-the-art technology.
+            </p>
+
+            <div class="vision-mission-grid reveal">
+                <div class="vm-card">
+                    <h3 class="vm-title"><i class="fa-regular fa-eye"></i> Vision</h3>
+                    <p>To empower students regarding Dental sciences, their systemic interconnectedness, and various
+                        treatment modalities.</p>
+                </div>
+                <div class="vm-card">
+                    <h3 class="vm-title"><i class="fa-solid fa-bullseye"></i> Mission</h3>
+                    <p>To provide comprehensive care for oral diseases and malformations, focusing on early cancer
+                        detection and community service.</p>
+                </div>
+            </div>
+
+            <section class="reveal">
+                <div class="hero-grid">
+
+                    <article class="card card-tint-teal card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Specialties</h3>
+                            <div class="icon-circle-bg teal icon-sm"><i class="fa-solid fa-teeth"></i></div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-check-circle"></i> Orthodontics, Endodontics, & Prosthodontics.
+                            </li>
+                            <li><i class="fa-solid fa-check-circle"></i> Oral & Maxillofacial Surgery.</li>
+                            <li><i class="fa-solid fa-magnifying-glass-plus"></i> <strong>Focus:</strong> Early
+                                detection of Oral Cancer.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-tint-red card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Patient Care</h3>
+                            <div class="icon-circle-bg red icon-sm"><i class="fa-solid fa-hand-holding-medical"></i>
+                            </div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-tooth"></i> Treatment of oral diseases & tooth misalignment.</li>
+                            <li><i class="fa-solid fa-face-smile"></i> Correction of jaw malformations & cleft palate.
+                            </li>
+                            <li><i class="fa-solid fa-heart-pulse"></i> Understanding systemic manifestations of oral
+                                issues.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card-tint-purple card-dept-left">
+                        <div class="card-dept-header">
+                            <h3>Infra & Learning</h3>
+                            <div class="icon-circle-bg purple icon-sm"><i class="fa-solid fa-chair"></i></div>
+                        </div>
+                        <ul class="info-list">
+                            <li><i class="fa-solid fa-chair"></i> State-of-the-art Dental Chairs & X-ray Radiology.</li>
+                            <li><i class="fa-solid fa-users"></i> Dedicated Teaching Areas & Small group sessions.</li>
+                            <li><i class="fa-solid fa-user-graduate"></i> 15-day clinical posting for students.</li>
+                        </ul>
+                    </article>
+
+                </div>
+            </section>
+
+            <section class="reveal section-spacing">
+                <h3 class="section-title">Faculty Members</h3>
+                <div class="table-container">
+                    <table class="glass-table">
+                        <thead>
+                            <tr>
+                                <th class="col-sr">Sr. No.</th>
+                                <th class="col-photo">Photo</th>
+                                <th class="col-name">Name</th>
+                                <th class="col-desig">Designation</th>
+                                <th class="col-qual">Qualifications</th>
+                                <th class="col-reg">Registration No.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="faculty-table-body"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <div id="global-footer"></div>
+    </div>
+    <script>window.SITE_BASE = '../';</script>
+    <script src="../assets/js/script.js" defer></script>
+    <script src="./dentistry/faculty-data.js"></script>
+    <script src="../assets/js/faculty-renderer.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFacultyTable(facultyData, 'faculty-table-body', './dentistry/');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,5 +1,8 @@
 @media (max-width: 1024px) {
   /* --- FIX: STRICT WIDTH CONTAINMENT --- */
+  html {
+    scroll-padding-top: var(--header-height);
+  }
   html,
   body {
     max-width: 100vw;

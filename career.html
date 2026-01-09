@@ -46,6 +46,8 @@
       cursor: pointer;
       transition: all 0.3s ease;
       text-decoration: none;
+      position: relative;
+      z-index: 5;
     }
 
     .doc-link-card:hover {
@@ -73,11 +75,13 @@
       font-size: 1.05rem;
       font-family: var(--font-heading);
       display: block;
+      margin-bottom: 5px;
     }
 
     .doc-subtitle {
       font-size: 0.85rem;
       color: var(--text-secondary);
+      display: block;
     }
 
     .doc-action {
@@ -95,14 +99,15 @@
       max-height: 0;
       overflow: hidden;
       opacity: 0;
-      transition: max-height 0.45s ease, opacity 0.3s ease;
-      margin-top: -10px;
+      transition: max-height 0.45s ease, opacity 0.3s ease, margin-top 0.3s ease;
+      margin-top: 0;
     }
 
     .expand-area.open {
-      max-height: 700px;
+      max-height: 500px;
       opacity: 1;
       padding-top: 15px;
+      margin-top: -10px;
     }
 
     .expand-inner {
@@ -110,6 +115,7 @@
       padding: 18px;
       border-radius: 12px;
       border: 1px solid rgba(0, 0, 0, 0.08);
+      overflow: hidden;
     }
 
     .expand-inner img {
@@ -140,7 +146,6 @@
 
       <div class="doc-list reveal">
 
-        <!-- Expand / Collapse Image -->
         <div>
           <div class="doc-link-card expand-toggle">
             <div class="doc-icon"><i class="fa-solid fa-image"></i></div>

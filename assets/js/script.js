@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // 5. COMPONENT LOADER (FIXED)
+    // 5. COMPONENT LOADER
     const loadComponents = async () => {
         const fetchHtml = (file) => fetch(baseUrl + file).then(res => res.ok ? res.text() : null);
 
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // 6. NAVIGATION LOGIC (UPDATED)
+    // 6. NAVIGATION LOGIC
     const initializeNavigation = () => {
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 menuBtn.classList.toggle("active", isActive);
                 if (sidebarOverlay) sidebarOverlay.classList.toggle("active", isActive);
 
-                // --- FIX START: Handle Body Scroll Smoothly ---
+                // Handle Body Scroll Smoothly
                 if (isActive) {
                     // LOCK immediately when opening
                     document.body.style.overflow = "hidden";
@@ -222,7 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     }, 300);
                 }
-                // --- FIX END ---
             };
 
             menuBtn.onclick = (e) => { e.stopPropagation(); toggleMenu(); };
@@ -232,9 +231,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const link = e.target.closest("a");
                 if (!link) return;
 
-                // --- FIX START: Don't close sidebar when clicking Theme Toggle ---
+                // Don't close sidebar when clicking Theme Toggle
                 if (link.id === "mobile-theme-toggle") return;
-                // --- FIX END ---
 
                 const nextSibling = link.nextElementSibling;
                 if (nextSibling && (nextSibling.matches('.dropdown-menu') || nextSibling.matches('.dropdown-submenu'))) {
@@ -250,4 +248,63 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     loadComponents();
+});
+
+/* Sticky header scroll correction */
+
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+function getHeaderHeight() {
+    const header = document.querySelector('.glass-nav');
+    return header ? header.offsetHeight : 0;
+}
+
+function syncHeaderHeight() {
+    const height = getHeaderHeight();
+    document.documentElement.style.setProperty(
+        '--header-height',
+        height + 'px'
+    );
+}
+
+let scrollAdjusted = false;
+
+window.addEventListener('load', () => {
+    if (scrollAdjusted) return;
+    scrollAdjusted = true;
+
+    const headerHeight = getHeaderHeight();
+    document.documentElement.style.setProperty(
+        '--header-height',
+        headerHeight + 'px'
+    );
+
+    if (location.hash) {
+        const target = document.querySelector(location.hash);
+        if (target) {
+            const y =
+                target.getBoundingClientRect().top +
+                window.scrollY -
+                headerHeight -
+                8;
+
+            window.scrollTo(0, Math.max(0, y));
+        }
+    }
+});
+
+
+window.addEventListener('resize', syncHeaderHeight);
+window.addEventListener('orientationchange', syncHeaderHeight);
+
+let resizeRAF = null;
+
+window.addEventListener('resize', () => {
+    if (resizeRAF) return;
+    resizeRAF = requestAnimationFrame(() => {
+        syncHeaderHeight();
+        resizeRAF = null;
+    });
 });

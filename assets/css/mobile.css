@@ -189,7 +189,6 @@
 
   #mobile-theme-toggle:active .mobile-toggle-wrapper {
     transform: scale(0.95);
-    background: var(--primary);
   }
 
   #mobile-theme-toggle:active .theme-icon {

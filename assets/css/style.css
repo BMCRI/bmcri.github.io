@@ -1554,13 +1554,21 @@ textarea {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+}
+
+/* Ensure the wrapper div around the accordion doesn't add extra space */
+.doc-list > div {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .doc-link-card {
   display: flex;
   align-items: center;
-  padding: 20px 20px;
+  padding: 20px 25px;
   background: var(--bg-card);
   backdrop-filter: blur(var(--card-blur));
   border: 1px solid var(--border-color);
@@ -1570,7 +1578,7 @@ textarea {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   position: relative;
-  z-index: 5;
+  z-index: 10;
   border-left: 1px solid var(--border-color);
 }
 
@@ -1580,16 +1588,13 @@ textarea {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* --- ACTIVE STATE (Expanded) --- */
+/* Active State */
 .doc-link-card.active {
   border-color: var(--primary);
   border-left: 5px solid var(--primary);
-  padding-left: 20px;
+  padding-left: 21px;
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.15);
-}
-
-.doc-link-card.active .doc-title {
-  color: var(--primary);
+  transform: none;
 }
 
 .doc-icon {
@@ -1627,7 +1632,6 @@ textarea {
   line-height: 1.3;
   color: var(--text-main);
   display: block;
-  transition: color 0.3s ease;
 }
 
 .doc-subtitle {
@@ -1649,49 +1653,71 @@ textarea {
   color: var(--primary);
 }
 
-/* --- EXPANSION AREA --- */
+/* --- EXPANSION AREA (Gap Fix) --- */
 .expand-area {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.3s ease, margin-top 0.3s ease;
+  display: grid;
+  grid-template-rows: 0fr;
+
+  /* Start with 0 margin to ensure NO gap when closed */
   margin-top: 0;
-  display: flex;
-  justify-content: center;
+
+  /* Animate Height + Margin + Visibility */
+  /* Visibility delay: 0.4s when closing (wait for slide to finish) */
+  visibility: hidden;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s 0.4s;
+
+  overflow: hidden;
   width: 100%;
+  padding: 0;
+  will-change: grid-template-rows, margin-top;
 }
 
 .expand-area.open {
-  max-height: 1500px;
-  opacity: 1;
-  padding-top: 15px;
-  margin-top: -10px;
+  grid-template-rows: 1fr;
+
+  /* Add the spacing here (when open) */
+  margin-top: 15px;
+
+  /* Visibility immediate when opening */
+  visibility: visible;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s;
 }
 
 .expand-inner {
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.expand-content-box {
   background: #ffffff;
-  padding: 12px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+
   width: fit-content;
   max-width: 100%;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
-.expand-inner img {
+.expand-content-box img {
   max-width: 100%;
   width: auto;
-  max-height: 50vh;
+  max-height: 40vh;
   height: auto;
   display: block;
   border-radius: 6px;
   object-fit: contain;
 }
+
 .glass-footer {
   position: relative;
   overflow: hidden;
@@ -1913,19 +1939,36 @@ textarea {
   font-size: 0.85rem;
 }
 
-/* --- GLOBAL THEME TRANSITION FIX --- */
-body,
-body * {
-  transition-property: background-color, color, border-color, box-shadow, fill,
-    stroke;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
+/* --- OPTIMIZED THEME TRANSITION --- */
+
+/* 1. Only animate the body and main containers */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-.theme-toggle,
-.theme-toggle *,
-.mobile-menu-toggle,
-.mobile-menu-toggle * {
-  transition-property: all;
+
+/* 2. Animate specific UI components that have backgrounds/borders */
+.card,
+.content-card,
+.dept-group-card,
+.activity-card,
+.glass-nav,
+.glass-footer,
+.dropdown-menu,
+.dropdown-submenu,
+.btn,
+.form-control,
+.doc-link-card,
+.expand-inner {
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* 3. Animate Icons & SVG fills specifically */
+i,
+svg,
+path,
+.icon-circle-bg {
+  transition: color 0.3s ease, fill 0.3s ease, background-color 0.3s ease;
 }
 
 /* --- FORCE HAND POINTER ON ALL NAVIGATION ELEMENTS --- */

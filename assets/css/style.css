@@ -108,7 +108,7 @@ button {
 .card-dept-left {
   align-items: flex-start;
   text-align: left;
-  height: 100%; /* Ensures cards in grid are same height */
+  height: 100%;
 }
 
 /* Header inside the card (Text left, Icon right) */
@@ -125,12 +125,11 @@ button {
   font-size: 1.3rem;
 }
 
-/* Smaller icon variant (Global is 60px, this makes it 45px) */
 .icon-circle-bg.icon-sm {
   width: 45px;
   height: 45px;
   font-size: 1.2rem;
-  flex-shrink: 0; /* Prevents squishing on small screens */
+  flex-shrink: 0;
 }
 
 /* Vision & Mission Headers */
@@ -142,7 +141,6 @@ button {
   margin-right: 10px;
 }
 
-/* Table Column Widths (Better than inline HTML widths) */
 .col-sr {
   width: 8%;
   text-align: center;
@@ -312,8 +310,8 @@ button {
   bottom: 90px !important;
 }
 #global-header {
-  min-height: 80px; /* Approximate height of your desktop header */
-  display: block; /* Changed from 'contents' to block to respect height */
+  min-height: 80px;
+  display: block;
   position: relative;
 }
 .top-bar {
@@ -700,7 +698,13 @@ textarea {
   flex-direction: column;
   min-height: 100vh;
 }
+.main-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  flex: 1; /* Pushes footer down */
+}
 .btn {
+  width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -844,7 +848,6 @@ textarea {
   background: var(--bg-card);
   backdrop-filter: blur(var(--card-blur));
   border-radius: var(--radius);
-  /* UNIFORM PADDING */
   padding: 30px;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-card);
@@ -894,11 +897,6 @@ textarea {
 .card-tint-purple .icon-circle-bg {
   background: linear-gradient(135deg, #a855f7, #7e22ce);
 }
-.main-content {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  flex: 1; /* Pushes footer down */
-}
 .hero-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -911,7 +909,7 @@ textarea {
   gap: 30px;
   margin-bottom: 30px;
 }
-/* .vm-card already handled by unified block above */
+
 .vm-card {
   position: relative;
   overflow: hidden;
@@ -957,7 +955,7 @@ textarea {
   gap: 30px;
   margin-bottom: 30px;
 }
-/* .alert-card already handled by unified block */
+
 .alert-card {
   gap: 15px;
   position: relative;
@@ -1025,7 +1023,7 @@ textarea {
 .grid-2-col {
   grid-template-columns: repeat(2, 1fr) !important;
 }
-/* .activity-card already handled by unified block */
+
 .activity-card {
   gap: 15px;
 }
@@ -1057,18 +1055,18 @@ textarea {
 }
 .trust-card-flex {
   display: flex;
-  flex-direction: row !important; /* Overrides the default 'column' from .trust-card */
+  flex-direction: row !important;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  text-align: left; /* Ensures text aligns left next to the logo */
+  text-align: left;
 }
 
 .trust-logo {
   flex-shrink: 0;
   display: flex;
   justify-content: center;
-  width: 200px; /* Specific width ensures logo area is consistent */
+  width: 200px;
 }
 
 .trust-logo img {
@@ -1203,7 +1201,6 @@ textarea {
   backdrop-filter: blur(var(--card-blur));
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
-  /* UNIFORM PADDING */
   padding: 30px;
   text-align: center;
   position: sticky;
@@ -1255,7 +1252,7 @@ textarea {
   margin-bottom: 15px;
   line-height: 1.5;
 }
-/* .content-card handled by unified block */
+
 [data-theme="light"] .content-card {
   border-color: rgba(0, 0, 0, 0.1);
 }
@@ -1351,7 +1348,6 @@ textarea {
   flex: 0 0 280px;
   text-align: center;
   border-right: 1px solid var(--border-color);
-  /* Unified padding for horizontal card segments */
   padding: 30px;
   background: linear-gradient(
     135deg,
@@ -1365,7 +1361,6 @@ textarea {
 }
 .pc-right {
   flex: 1;
-  /* Unified padding */
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -1397,16 +1392,14 @@ textarea {
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 30px;
 }
-/* .dept-group-card handled by unified block */
+
 .dept-group-card {
-  gap: 14px;
-  /* --- Override Global Card Styles for subtler look --- */
-  background: rgba(30, 30, 30, 0.25); /* More transparent than global 0.45 */
-  backdrop-filter: blur(12px); /* Softer blur than global 24px */
-  border-color: rgba(255, 255, 255, 0.08); /* Fainter border */
+  gap: 15px;
+  background: rgba(30, 30, 30, 0.25);
+  backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Add hover effect to bring it back to focus */
 .dept-group-card:hover {
   background: rgba(30, 30, 30, 0.4);
   backdrop-filter: blur(16px);
@@ -1414,7 +1407,7 @@ textarea {
 
 /* --- Light Mode Overrides --- */
 [data-theme="light"] .dept-group-card {
-  background: rgba(255, 255, 255, 0.4); /* More transparent than global 0.65 */
+  background: rgba(255, 255, 255, 0.4);
   border-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -1557,7 +1550,6 @@ textarea {
   gap: 10px;
 }
 
-/* Ensure the wrapper div around the accordion doesn't add extra space */
 .doc-list > div {
   margin: 0;
   padding: 0;
@@ -1653,20 +1645,14 @@ textarea {
   color: var(--primary);
 }
 
-/* --- EXPANSION AREA (Gap Fix) --- */
+/* --- EXPANSION AREA --- */
 .expand-area {
   display: grid;
   grid-template-rows: 0fr;
-
-  /* Start with 0 margin to ensure NO gap when closed */
   margin-top: 0;
-
-  /* Animate Height + Margin + Visibility */
-  /* Visibility delay: 0.4s when closing (wait for slide to finish) */
   visibility: hidden;
   transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s 0.4s;
-
   overflow: hidden;
   width: 100%;
   padding: 0;
@@ -1675,11 +1661,7 @@ textarea {
 
 .expand-area.open {
   grid-template-rows: 1fr;
-
-  /* Add the spacing here (when open) */
   margin-top: 15px;
-
-  /* Visibility immediate when opening */
   visibility: visible;
   transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s;
@@ -1699,7 +1681,6 @@ textarea {
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-
   width: fit-content;
   max-width: 100%;
   display: flex;
@@ -1940,13 +1921,10 @@ textarea {
 }
 
 /* --- OPTIMIZED THEME TRANSITION --- */
-
-/* 1. Only animate the body and main containers */
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 2. Animate specific UI components that have backgrounds/borders */
 .card,
 .content-card,
 .dept-group-card,
@@ -1963,7 +1941,6 @@ body {
     box-shadow 0.3s ease, color 0.3s ease;
 }
 
-/* 3. Animate Icons & SVG fills specifically */
 i,
 svg,
 path,
@@ -1972,8 +1949,6 @@ path,
 }
 
 /* --- FORCE HAND POINTER ON ALL NAVIGATION ELEMENTS --- */
-
-/* 1. Main Navigation & Mobile Links */
 .nav-link,
 .nav-item,
 .nav-item > a,
@@ -1984,7 +1959,6 @@ path,
   cursor: pointer !important;
 }
 
-/* 2. Dropdowns & Submenus */
 .dropdown-menu,
 .dropdown-menu li,
 .dropdown-menu li a,
@@ -1994,7 +1968,6 @@ path,
   cursor: pointer !important;
 }
 
-/* 3. Theme Toggles & Icons */
 .theme-toggle,
 #mobile-theme-toggle,
 .theme-icon,

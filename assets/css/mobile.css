@@ -9,7 +9,7 @@
     overflow-x: hidden;
   }
   #global-header {
-    min-height: 60px; /* Match your --mobile-header-height */
+    min-height: 60px;
   }
   /* --- Layout & Container Fixes --- */
   .container-wide {
@@ -21,7 +21,6 @@
     overflow-x: hidden;
   }
 
-  /* --- Force Wrappers to Contain Content --- */
   .achievements-wrapper,
   .right-content-wrapper,
   .profile-grid {
@@ -34,7 +33,6 @@
     padding: 0 !important;
   }
 
-  /* --- Table Fix: Internal Scroll Only --- */
   .table-container {
     width: 100%;
     display: block;
@@ -305,7 +303,7 @@
     line-height: 24px;
   }
 
-  /* --- HOVER FIXES FOR MOBILE (Only triggers on mouse) --- */
+  /* --- HOVER FIXES FOR MOBILE --- */
   @media (hover: hover) {
     .mobile-quick-links a:hover {
       background: rgba(255, 255, 255, 0.15);
@@ -604,7 +602,6 @@
     gap: 15px;
   }
 
-  /* --- OTHER 1024px Adjustments --- */
   .trustee-grid {
     flex-direction: column;
     align-items: center;
@@ -730,7 +727,6 @@
     padding-right: 20px !important;
   }
 
-  /* --- FIX: Consistent Card Padding for Mobile --- */
   .card,
   .content-card,
   .dept-group-card,
@@ -744,13 +740,11 @@
     padding: 15px !important;
   }
 
-  /* Slightly tighter gap for headings inside cards */
   .card h3 {
     margin: 10px 0;
     font-size: 1.25rem;
   }
 
-  /* --- FIX: Standardized Vertical Spacing --- */
   .hero-grid,
   .warning-grid,
   .vision-mission-grid,
@@ -761,7 +755,6 @@
     margin-bottom: 30px !important;
   }
 
-  /* --- FIX: Clean Grids --- */
   .activities-grid,
   .warning-grid,
   .vision-mission-grid {
@@ -774,7 +767,6 @@
     gap: 20px;
   }
 
-  /* --- FIX: Trust Section & Logo --- */
   .trust-card-flex {
     flex-direction: column !important;
     text-align: center !important;
@@ -797,12 +789,11 @@
   }
 
   .btn {
-    width: 100%;
+    width: auto;
   }
 
-  /* --- FIX: Slideshow Height --- */
   .hero-slideshow-container {
-    height: 240px;
+    height: 220px;
   }
 
   .slide-btn {

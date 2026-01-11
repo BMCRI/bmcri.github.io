@@ -919,8 +919,8 @@ textarea {
 .vm-card h3 {
   font-family: var(--font-heading);
   color: var(--primary);
-  margin-bottom: 15px;
-  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
 }
 .vm-card p {
   color: var(--text-secondary);
@@ -1040,6 +1040,12 @@ textarea {
   font-size: 1.25rem;
   color: var(--text-main);
 }
+.activity-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .activity-card p {
   font-size: 0.95rem;
   color: var(--text-secondary);

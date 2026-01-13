@@ -1,41 +1,66 @@
 document.addEventListener("DOMContentLoaded", () => {
     "use strict";
 
-    // --- CONFIGURATION ---
-    const CONFIG = {
-        slideshowUrl: "assets/slideshow/slideshow.json",
-        useCache: true, // Set to false during active development
-        // Fallback if window.SITE_BASE isn't set in HTML
-        baseUrl: window.SITE_BASE || document.querySelector('base')?.href || "./"
+    // --- 1. CORE UTILITY: Auto-Detect Base URL ---
+    // This finds the "style.css" link in your HTML and calculates 
+    // how many folders deep we are (e.g., "../" or "../../").
+    const getBaseUrl = () => {
+        const cssLink = document.querySelector('link[href*="style.css"]');
+
+        // Safety fallback if style.css isn't found
+        if (!cssLink) return window.SITE_BASE || "./";
+
+        // Get the href (e.g., "../assets/css/style.css")
+        const href = cssLink.getAttribute('href');
+
+        // We know style.css is inside "assets/...", so we split the string there.
+        // If href is "assets/css/..." -> prefix is "" (mapped to "./")
+        // If href is "../assets/css/..." -> prefix is "../"
+        const prefix = href.split("assets/")[0];
+
+        return prefix === "" ? "./" : prefix;
     };
 
-    console.log("Base URL:", CONFIG.baseUrl);
+    // --- CONFIGURATION ---
+    const CONFIG = {
+        slideshowUrl: "assets/slideshow/slideshow.json", // Path relative to site root
+        useCache: true,
+        baseUrl: getBaseUrl() // Auto-calculated base
+    };
 
-    // --- 1. CORE UTILITIES ---
+    console.log("System Base URL:", CONFIG.baseUrl);
+
+    // --- 2. LINK FIXER ---
 
     /**
-     * Fixes relative links within a specific container only.
-     * much faster than scanning the whole document.
+     * Fixes relative links (img src, a href) in injected HTML
+     * so they work from any sub-folder depth.
      */
     const fixRelativeLinks = (container) => {
         if (!container) return;
 
-        const selectors = 'a[href], img[src], link[href], script[src]';
+        // Select everything that links to a file
+        const selectors = 'a[href], img[src], link[href], script[src], source[src]';
         const elements = container.querySelectorAll(selectors);
 
         elements.forEach(element => {
-            const attr = element.tagName === 'IMG' || element.tagName === 'SCRIPT' ? 'src' : 'href';
+            const attr = (element.tagName === 'IMG' || element.tagName === 'SCRIPT' || element.tagName === 'SOURCE') ? 'src' : 'href';
             const val = element.getAttribute(attr);
 
-            // Skip absolute links, anchors, data URIs, or javascript:
+            // 1. Skip if empty, absolute (http), anchors (#), mailto, or javascript
             if (!val || /^(http|\/\/|mailto:|tel:|#|data:|javascript:)/.test(val)) return;
 
-            // Clean path (remove ./ or ../)
-            let cleanPath = val.replace(/^(\.?\/)/, '');
-            while (cleanPath.startsWith('../')) {
-                cleanPath = cleanPath.substring(3);
+            // 2. Clean the path: Remove existing ./ or ../ prefixes
+            // We want the "pure" path relative to the root (e.g. "assets/logo.webp")
+            let cleanPath = val;
+
+            // Remove all occurrences of "../" or "./" from the start
+            while (cleanPath.startsWith('../') || cleanPath.startsWith('./')) {
+                cleanPath = cleanPath.replace(/^(\.\.?\/)/, '');
             }
 
+            // 3. Prepend the calculated Base URL
+            // e.g., "../" + "assets/logo.webp"
             element.setAttribute(attr, CONFIG.baseUrl + cleanPath);
         });
     };
@@ -46,19 +71,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const fetchComponent = async (filename) => {
         const cacheKey = `bmc_cache_${filename}`;
 
-        // 1. Try Cache first
         if (CONFIG.useCache) {
             const cached = sessionStorage.getItem(cacheKey);
             if (cached) return cached;
         }
 
-        // 2. Network Fetch
         try {
+            // Fetch relative to the calculated base
             const response = await fetch(CONFIG.baseUrl + filename);
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             const html = await response.text();
 
-            // Save to cache
             if (CONFIG.useCache) sessionStorage.setItem(cacheKey, html);
             return html;
         } catch (error) {
@@ -67,59 +90,56 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // --- 2. COMPONENT LOADER (Render-on-Arrival Strategy) ---
+    // --- 3. COMPONENT LOADER ---
     const loadComponents = async () => {
         const mainContentArea = document.getElementById("main-content-area");
-        // Only fetch homepage content if the container exists and is empty
+        // Check if main content is empty (needs homepage loaded) or has static content
         const needsMain = mainContentArea && !mainContentArea.innerHTML.trim();
 
-        // -- Load Critical Components (Parallel but Independent) --
-
-        // 1. Header
+        // -- 1. Load Header --
         fetchComponent('header.html').then(html => {
             if (html) {
                 const headerEl = document.getElementById('global-header');
                 headerEl.innerHTML = html;
-                fixRelativeLinks(headerEl);
-                initializeNavigation(); // Init nav immediately after header loads
-                syncHeaderHeight();     // Calc height immediately
+                fixRelativeLinks(headerEl); // Apply URL fix immediately
+                initializeNavigation();
+                syncHeaderHeight();
             }
         });
 
-        // 2. Main Content (Homepage)
+        // -- 2. Load Homepage (if needed) --
         if (needsMain) {
             fetchComponent('homepage.html').then(html => {
                 if (html) {
                     mainContentArea.innerHTML = html;
-                    fixRelativeLinks(mainContentArea);
-                    initObservers();      // Start animations
-                    initializeSlideshow();// Start slideshow
+                    fixRelativeLinks(mainContentArea); // Fix image/link paths in homepage
+                    initObservers();
+                    initializeSlideshow();
                 }
             });
         } else {
-            // If main content was already there (static page), just init observers
-            fixRelativeLinks(mainContentArea); // Fix links in static content too
+            // If page is static (like About Us), we still must fix links 
+            // because the HTML might have "assets/img.jpg" hardcoded
+            fixRelativeLinks(mainContentArea);
             initObservers();
         }
 
-        // 3. Footer (Non-critical, let it load whenever)
+        // -- 3. Load Footer --
         fetchComponent('footer.html').then(html => {
             if (html) {
                 const footerEl = document.getElementById('global-footer');
                 footerEl.innerHTML = html;
-                fixRelativeLinks(footerEl);
+                fixRelativeLinks(footerEl); // Fix social icons and links
 
-                // Set Year
                 const yearSpan = document.getElementById("current-year");
                 if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-                // Setup Footer Interactions
                 initFooterInteractions();
             }
         });
     };
 
-    // --- 3. ANIMATION & OBSERVERS ---
+    // --- 4. ANIMATION & OBSERVERS ---
     const initObservers = () => {
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -130,21 +150,21 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }, { threshold: 0.1 });
 
-        // Observe elements in main content and footer
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     };
 
-    // --- 4. SLIDESHOW LOGIC ---
+    // --- 5. SLIDESHOW LOGIC ---
     const initializeSlideshow = async () => {
         const container = document.getElementById("dynamic-slideshow");
         if (!container) return;
 
         try {
+            // Fetch JSON using the dynamic base URL
             const response = await fetch(CONFIG.baseUrl + CONFIG.slideshowUrl);
             if (!response.ok) return;
 
             let images = await response.json();
-            // Shuffle images
+            // Shuffle
             for (let i = images.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [images[i], images[j]] = [images[j], images[i]];
@@ -152,13 +172,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const overlay = container.querySelector(".slide-overlay");
 
-            // Create slides
             images.forEach((src, index) => {
                 const slide = document.createElement("div");
                 slide.className = `hero-slide ${index === 0 ? "active" : ""}`;
-                // High priority for first image only
                 const priority = index === 0 ? 'fetchpriority="high"' : 'loading="lazy"';
-                slide.innerHTML = `<img src="${CONFIG.baseUrl}assets/slideshow/${src}" alt="Slide" ${priority}>`;
+
+                // IMPORTANT: Construct image source using dynamic base
+                // Assumption: 'src' in JSON is just the filename (e.g. "slide1.jpg")
+                const fullSrc = `${CONFIG.baseUrl}assets/slideshow/${src}`;
+
+                slide.innerHTML = `<img src="${fullSrc}" alt="Slide" ${priority}>`;
                 container.insertBefore(slide, overlay);
             });
 
@@ -175,9 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 let interval = setInterval(() => showSlide(currentIndex + 1), 5000);
 
-                // Controls
                 const resetTimer = () => { clearInterval(interval); interval = setInterval(() => showSlide(currentIndex + 1), 5000); };
-
                 const nextBtn = container.querySelector(".next");
                 const prevBtn = container.querySelector(".prev");
 
@@ -186,18 +207,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
         } catch (e) {
-            console.warn("Slideshow skipped:", e);
+            console.warn("Slideshow skipped or failed:", e);
         }
     };
 
-    // --- 5. NAVIGATION ---
+    // --- 6. NAVIGATION LOGIC ---
     const initializeNavigation = () => {
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
         const navList = document.querySelector(".nav-list");
         const menuBtn = document.querySelector(".mobile-menu-toggle");
         const sidebarOverlay = document.getElementById("sidebar-overlay");
 
-        // Set Active Links
         document.querySelectorAll(".nav-list a").forEach(link => {
             const href = link.getAttribute("href");
             if (!href) return;
@@ -205,50 +225,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (linkFile === currentPath) {
                 link.classList.add("active");
-                // Highlight parents
                 link.closest(".has-submenu")?.querySelector(":scope > a")?.classList.add("active");
                 link.closest(".nav-item")?.querySelector(".nav-link")?.classList.add("active");
             }
         });
 
-        // Mobile Menu Logic
         if (menuBtn && navList) {
             const toggleMenu = (forceClose) => {
                 const isActive = forceClose ? false : !navList.classList.contains("active");
                 navList.classList.toggle("active", isActive);
                 menuBtn.classList.toggle("active", isActive);
                 if (sidebarOverlay) sidebarOverlay.classList.toggle("active", isActive);
-
-                // Scroll Lock
                 document.body.style.overflow = isActive ? "hidden" : "";
             };
 
             menuBtn.onclick = (e) => { e.stopPropagation(); toggleMenu(); };
             if (sidebarOverlay) sidebarOverlay.onclick = () => toggleMenu(true);
 
-            // Dropdown Toggles on Mobile
             navList.onclick = (e) => {
                 const link = e.target.closest("a");
-                if (!link) return;
-                if (link.id === "mobile-theme-toggle") return;
+                if (!link || link.id === "mobile-theme-toggle") return;
 
                 const nextEl = link.nextElementSibling;
-                // Check if it's a dropdown trigger
                 if (nextEl && (nextEl.matches('.dropdown-menu') || nextEl.matches('.dropdown-submenu'))) {
-                    if (window.innerWidth <= 1024) { // Only prevent default on mobile
+                    if (window.innerWidth <= 1024) {
                         e.preventDefault();
                         e.stopPropagation();
                         link.parentElement.classList.toggle("dropdown-active");
                     }
                 } else {
-                    // It's a regular link, close menu
                     toggleMenu(true);
                 }
             };
         }
     };
 
-    // --- 6. FOOTER INTERACTIONS (Theme Lift, etc) ---
+    // --- 7. FOOTER INTERACTIONS ---
     const initFooterInteractions = () => {
         const copyrightBar = document.querySelector('.copyright-bar');
         const themeBtn = document.getElementById('theme-toggle');
@@ -262,23 +274,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // --- 7. GLOBAL ACCORDION LOGIC ---
+    // --- 8. ACCORDION LOGIC ---
     const initializeAccordions = () => {
-        // We use event delegation on the document body
-        // This handles clicks for existing AND future elements
         document.body.addEventListener('click', (e) => {
             const toggle = e.target.closest('.expand-toggle');
-
             if (toggle) {
-                // Toggle the button state
                 toggle.classList.toggle('active');
-
-                // Find the content area (next sibling)
                 const content = toggle.parentElement.querySelector('.expand-area');
-
-                if (content) {
-                    content.classList.toggle('open');
-                }
+                if (content) content.classList.toggle('open');
             }
         });
     };
@@ -289,8 +292,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // --- GLOBAL HELPERS (Outside DOMContentLoaded) ---
-
-// Sticky Header Logic
 let resizeTimer;
 const syncHeaderHeight = () => {
     const header = document.querySelector('.glass-nav');
@@ -305,7 +306,6 @@ window.addEventListener('resize', () => {
 });
 window.addEventListener('orientationchange', syncHeaderHeight);
 
-// Scroll Correction for Hash Links
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
 window.addEventListener('load', () => {

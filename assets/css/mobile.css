@@ -738,7 +738,7 @@
   .profile-card,
   .pc-left,
   .pc-right {
-    padding: 15px !important;
+    padding: 20px !important;
   }
 
   .card h3 {
@@ -775,7 +775,7 @@
   }
 
   .trust-logo {
-    width: 100%;
+    width: 150px;
     padding-bottom: 15px;
     border-bottom: 1px solid var(--border-color);
     display: flex;

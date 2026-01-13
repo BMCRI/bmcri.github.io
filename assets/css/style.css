@@ -700,6 +700,7 @@ textarea {
 .main-content {
   padding-top: 40px;
   padding-bottom: 40px;
+  min-height: 90vh;
   flex: 1; /* Pushes footer down */
 }
 .btn {

@@ -104,7 +104,7 @@
         .lightbox-content {
             max-width: 90%;
             max-height: 85vh;
-            border-radius: 4px;
+            /* No border or shadow here - prevents empty box flicker */
             opacity: 0;
             transform: scale(0.95);
             transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -116,6 +116,7 @@
             visibility: visible;
             opacity: 1;
             transform: scale(1);
+            /* Only show border/shadow when image is actually there */
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -371,25 +372,22 @@
         function openLightbox(index, element) {
             currentIndex = index;
 
-            // 1. Handle Card Hover Effects
             if (currentActiveCard) currentActiveCard.classList.remove('locked-hover');
             if (element) { element.classList.add('locked-hover'); currentActiveCard = element; }
 
-            // 2. RESET IMAGE (Crucial for Mobile/Flicker)
-            // Don't set style.opacity = '0' here, it breaks the CSS fade-in later!
+            // --- RESET FOR OPENING ONLY ---
+            // Hide the image immediately so we start with a clean black background
             lightboxImg.classList.remove('visible');
             lightboxImg.style.visibility = 'hidden';
-            lightboxImg.src = ""; // Clear old image
+            lightboxImg.style.opacity = ''; // Clear any inline opacity
+            lightboxImg.src = "";           // Clear source to prevent ghost image
 
-            // Force Reflow (clears visual buffer)
-            void lightboxImg.offsetWidth;
-
-            // 3. Show Lightbox Container
+            // Show the container
             lightbox.classList.add('active');
             document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
 
-            // 4. Load New Image
+            // Start loading
             requestAnimationFrame(() => {
                 loadImage(galleryImages[currentIndex]);
             });
@@ -399,23 +397,23 @@
             // Show loader
             lightboxLoader.classList.remove('hidden');
 
-            // Hide image while loading
-            lightboxImg.classList.remove('visible');
-            lightboxImg.style.visibility = 'hidden';
+            // --- CRITICAL FIX ---
+            // Do NOT hide the image here. 
+            // If we are navigating Next/Prev, we want the OLD image to stay 
+            // visible until the NEW one is ready to swap.
 
             const pre = new Image();
             pre.src = src;
 
             const showImage = () => {
+                // Swap the source now that it is loaded
                 lightboxImg.src = src;
 
                 requestAnimationFrame(() => {
+                    // Hide loader
                     lightboxLoader.classList.add('hidden');
 
-                    // RESET INLINE STYLES so CSS class can work
-                    lightboxImg.style.opacity = '';
-
-                    // Show image
+                    // Make sure image is visible (for the "Open" case)
                     lightboxImg.style.visibility = 'visible';
                     lightboxImg.classList.add('visible');
                 });

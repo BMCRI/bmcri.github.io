@@ -111,9 +111,11 @@
             transform: scale(0.95);
             transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
             user-select: none;
+            visibility: hidden;
         }
 
         .lightbox-content.visible {
+            visibility: visible;
             opacity: 1;
             transform: scale(1);
         }
@@ -391,21 +393,38 @@
         }
 
         function loadImage(src) {
+            // Show loader
             lightboxLoader.classList.remove('hidden');
+
+            // HARD hide image before src change
             lightboxImg.classList.remove('visible');
+            lightboxImg.style.visibility = 'hidden';
+
+            // Clear src to avoid ghost frame
+            lightboxImg.src = '';
 
             const pre = new Image();
 
-            pre.onload = () => {
+            pre.src = src;
+
+            // Decode before attaching to DOM image
+            pre.decode().then(() => {
                 lightboxImg.src = src;
 
                 requestAnimationFrame(() => {
                     lightboxLoader.classList.add('hidden');
                     lightboxImg.classList.add('visible');
+                    lightboxImg.style.visibility = 'visible';
                 });
-            };
-
-            pre.src = src;
+            }).catch(() => {
+                // Fallback (older browsers)
+                pre.onload = () => {
+                    lightboxImg.src = src;
+                    lightboxLoader.classList.add('hidden');
+                    lightboxImg.classList.add('visible');
+                    lightboxImg.style.visibility = 'visible';
+                };
+            });
         }
 
         document.addEventListener('keydown', (e) => {

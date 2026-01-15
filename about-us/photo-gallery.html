@@ -23,6 +23,11 @@
 
     <script src="../assets/js/theme.js"></script>
     <style>
+        /* Add this to your CSS */
+        .no-transition {
+            transition: none !important;
+        }
+
         /* --- GRID & CARDS --- */
         .gallery-grid {
             display: grid;
@@ -372,48 +377,50 @@
         function openLightbox(index, element) {
             currentIndex = index;
 
+            // 1. Lock Hover
             if (currentActiveCard) currentActiveCard.classList.remove('locked-hover');
             if (element) { element.classList.add('locked-hover'); currentActiveCard = element; }
 
-            // --- RESET FOR OPENING ONLY ---
-            // Hide the image immediately so we start with a clean black background
-            lightboxImg.classList.remove('visible');
-            lightboxImg.style.visibility = 'hidden';
-            lightboxImg.style.opacity = ''; // Clear any inline opacity
-            lightboxImg.src = "";           // Clear source to prevent ghost image
+            // 2. DISABLE ANIMATION & HIDE INSTANTLY
+            // This stops the "fade out" animation from playing while the lightbox fades in
+            lightboxImg.classList.add('no-transition');
 
-            // Show the container
+            // 3. Reset Image State
+            lightboxImg.classList.remove('visible');
+            lightboxImg.style.opacity = '0'; // Ensure it's invisible
+            lightboxImg.src = "";            // Wipe the source
+
+            // 4. Show Lightbox Container
             lightbox.classList.add('active');
             document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
 
-            // Start loading
+            // 5. Start Loading New Image
             requestAnimationFrame(() => {
                 loadImage(galleryImages[currentIndex]);
             });
         }
 
         function loadImage(src) {
-            // Show loader
+            // Show Loader
             lightboxLoader.classList.remove('hidden');
 
-            // --- CRITICAL FIX ---
-            // Do NOT hide the image here. 
-            // If we are navigating Next/Prev, we want the OLD image to stay 
-            // visible until the NEW one is ready to swap.
+            // NOTE: We do NOT hide the image here (keeps Next/Prev smooth)
 
             const pre = new Image();
             pre.src = src;
 
             const showImage = () => {
-                // Swap the source now that it is loaded
                 lightboxImg.src = src;
 
                 requestAnimationFrame(() => {
-                    // Hide loader
                     lightboxLoader.classList.add('hidden');
 
-                    // Make sure image is visible (for the "Open" case)
+                    // 1. RE-ENABLE ANIMATIONS (so the new image fades in smoothly)
+                    lightboxImg.classList.remove('no-transition');
+
+                    // 2. Make Visible
+                    lightboxImg.style.opacity = ''; // Remove inline opacity override
                     lightboxImg.style.visibility = 'visible';
                     lightboxImg.classList.add('visible');
                 });

@@ -371,58 +371,56 @@
         function openLightbox(index, element) {
             currentIndex = index;
 
-            // Handle hover locking
+            // 1. Handle Card Hover Effects
             if (currentActiveCard) currentActiveCard.classList.remove('locked-hover');
             if (element) { element.classList.add('locked-hover'); currentActiveCard = element; }
 
-            // --- FIX START: Hard Reset for Android ---
-            // 1. Instantly hide the image element so it can't render the old photo
-            lightboxImg.style.visibility = 'hidden';
-            lightboxImg.style.opacity = '0';
+            // 2. RESET IMAGE (Crucial for Mobile/Flicker)
+            // Don't set style.opacity = '0' here, it breaks the CSS fade-in later!
             lightboxImg.classList.remove('visible');
+            lightboxImg.style.visibility = 'hidden';
+            lightboxImg.src = ""; // Clear old image
 
-            // 2. Wipe the source. 
-            // This ensures that even if the browser tries to render, there is nothing there.
-            lightboxImg.src = "";
-
-            // 3. Force the browser to process these changes NOW (Reflow)
+            // Force Reflow (clears visual buffer)
             void lightboxImg.offsetWidth;
-            // --- FIX END ---
 
-            // Now it is safe to show the black background
+            // 3. Show Lightbox Container
             lightbox.classList.add('active');
             document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
 
-            // Start loading the new image
-            // Small delay ensures the 'src=""' has definitely taken effect on slower phones
+            // 4. Load New Image
             requestAnimationFrame(() => {
                 loadImage(galleryImages[currentIndex]);
             });
         }
 
         function loadImage(src) {
-            // Show Loader
+            // Show loader
             lightboxLoader.classList.remove('hidden');
 
-            // Create virtual image to preload
+            // Hide image while loading
+            lightboxImg.classList.remove('visible');
+            lightboxImg.style.visibility = 'hidden';
+
             const pre = new Image();
             pre.src = src;
 
             const showImage = () => {
                 lightboxImg.src = src;
 
-                // Use double requestAnimationFrame for smoothest mobile animation
                 requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        lightboxLoader.classList.add('hidden');
-                        lightboxImg.style.visibility = 'visible';
-                        lightboxImg.classList.add('visible');
-                    });
+                    lightboxLoader.classList.add('hidden');
+
+                    // RESET INLINE STYLES so CSS class can work
+                    lightboxImg.style.opacity = '';
+
+                    // Show image
+                    lightboxImg.style.visibility = 'visible';
+                    lightboxImg.classList.add('visible');
                 });
             };
 
-            // Attempt decode (modern) or fallback to onload (legacy)
             if (pre.decode) {
                 pre.decode().then(showImage).catch(showImage);
             } else {

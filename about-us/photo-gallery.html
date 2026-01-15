@@ -56,16 +56,25 @@
             object-fit: cover;
             transition: transform 0.6s ease;
             display: block;
+
+            /* --- FIX FOR NOISY/CRISP IMAGES --- */
+            image-rendering: auto;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
-        /* Hover Effects */
-        .gallery-item:hover {
-            transform: scale(1.05);
+        /* --- HOVER EFFECTS (Normal & Locked) --- */
+        .gallery-item:hover,
+        .gallery-item.locked-hover {
+            transform: translateY(-6px);
             border-color: var(--primary);
             box-shadow: 0 12px 30px rgba(59, 130, 246, 0.25);
+            z-index: 10;
         }
 
-        .gallery-item:hover img {
+        .gallery-item:hover img,
+        .gallery-item.locked-hover img {
             transform: scale(1.1);
         }
 
@@ -79,9 +88,12 @@
             justify-content: center;
             opacity: 0;
             transition: opacity 0.3s ease;
+            pointer-events: none;
+            /* Prevents flicker on hover */
         }
 
-        .gallery-item:hover .gallery-overlay {
+        .gallery-item:hover .gallery-overlay,
+        .gallery-item.locked-hover .gallery-overlay {
             opacity: 1;
         }
 
@@ -93,11 +105,12 @@
             transition: transform 0.3s ease;
         }
 
-        .gallery-item:hover .gallery-overlay i {
+        .gallery-item:hover .gallery-overlay i,
+        .gallery-item.locked-hover .gallery-overlay i {
             transform: scale(1);
         }
 
-        /* --- Lightbox Modal Styles --- */
+        /* --- LIGHTBOX STYLES --- */
         .lightbox {
             position: fixed;
             top: 0;
@@ -126,11 +139,16 @@
             border-radius: 4px;
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transform: scale(0.9);
-            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+            /* Start invisible for smooth fade-in */
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        .lightbox.active .lightbox-content {
+        /* Applied via JS when image is loaded */
+        .lightbox-content.visible {
+            opacity: 1;
             transform: scale(1);
         }
 
@@ -143,12 +161,36 @@
             cursor: pointer;
             opacity: 0.7;
             transition: 0.2s;
-            z-index: 10001;
+            z-index: 10003;
         }
 
         .lightbox-close:hover {
             opacity: 1;
             color: var(--primary);
+        }
+
+        /* --- LOADING SPINNER --- */
+        .lightbox-loader {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            display: none;
+            /* Hidden by default */
+            z-index: 10002;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         @media(max-width: 768px) {
@@ -173,94 +215,76 @@
 
             <div class="reveal">
                 <div class="gallery-grid">
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (0).jpg" alt="Gallery Photo 0">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (1).jpg" alt="Gallery Photo 1">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (2).jpg" alt="Gallery Photo 2">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/Banas-Medical-College-Palanpur.webp" alt="Campus">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (3).jpg" alt="Gallery Photo 3">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (4).jpg" alt="Gallery Photo 4">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (5).jpg" alt="Gallery Photo 5">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (6).jpg" alt="Gallery Photo 6">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (7).jpg" alt="Gallery Photo 7">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (8).jpg" alt="Gallery Photo 8">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (9).jpg" alt="Gallery Photo 9">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (10).jpg" alt="Gallery Photo 10">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (11).jpg" alt="Gallery Photo 11">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (12).jpg" alt="Gallery Photo 12">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (13).jpg" alt="Gallery Photo 13">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="../uploads/photo-gallery/unnamed (14).jpg" alt="Gallery Photo 14">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="../uploads/photo-gallery/Civilhosptial.webp" alt="Banas General Hospital, Palanpur">
+                        <img src="../uploads/photo-gallery/Civilhosptial.webp" alt="Banas General Hospital">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
-
                     <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="../uploads/photo-gallery/Gnw_2dJWsAA5qIF.jpg" alt="Banas General Hospital, Palanpur">
+                        <img src="../uploads/photo-gallery/Gnw_2dJWsAA5qIF.jpg" alt="Banas General Hospital">
                         <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                     </div>
                 </div>
@@ -271,6 +295,7 @@
 
     <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
         <span class="lightbox-close">&times;</span>
+        <div id="lightbox-loader" class="lightbox-loader"></div>
         <img id="lightbox-img" class="lightbox-content" src="" alt="Full Screen View">
     </div>
 
@@ -278,43 +303,64 @@
     <script src="../assets/js/script.js" defer></script>
 
     <script>
-        /* --- Lightbox Logic --- */
+        /* --- OPTIMIZED LIGHTBOX LOGIC --- */
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxLoader = document.getElementById('lightbox-loader');
+        let currentActiveCard = null;
 
         function openLightbox(element) {
-            const img = element.querySelector('img');
+            // 1. Lock the Hover State (Prevents flicker/jump)
+            if (currentActiveCard) currentActiveCard.classList.remove('locked-hover');
+            element.classList.add('locked-hover');
+            currentActiveCard = element;
 
-            // 1. Set the source
+            // 2. Open Lightbox Background & Show Loader IMMEDIATELY
+            lightbox.classList.add('active');
+            lightboxLoader.style.display = 'block';
+            lightboxImg.classList.remove('visible'); // Start hidden
+            document.body.style.overflow = 'hidden';
+
+            // 3. Set Source
+            const img = element.querySelector('img');
             lightboxImg.src = img.src;
 
-            // 2. Wait for the image to acknowledge it is loaded/ready before showing
+            // 4. When Ready -> Hide Loader, Fade In Image
             lightboxImg.onload = () => {
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                lightboxLoader.style.display = 'none';
+                lightboxImg.classList.add('visible');
             };
 
-            // Check if complete, then show immediately.
+            // Fallback for cached images
             if (lightboxImg.complete) {
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                lightboxLoader.style.display = 'none';
+                lightboxImg.classList.add('visible');
             }
         }
 
         function closeLightbox(event) {
-            // Only close if clicking the background or the X button
+            // Close only if clicking background or Close Button
             if (event.target !== lightboxImg) {
                 lightbox.classList.remove('active');
                 document.body.style.overflow = '';
+                lightboxImg.classList.remove('visible');
 
-                // Clear source ONLY after the fade-out animation (300ms) finishes
+                // Unlock the card hover state smoothly
+                if (currentActiveCard) {
+                    setTimeout(() => {
+                        currentActiveCard.classList.remove('locked-hover');
+                        currentActiveCard = null;
+                    }, 300);
+                }
+
+                // Clean up after animation
                 setTimeout(() => {
                     lightboxImg.src = '';
+                    lightboxLoader.style.display = 'none';
                 }, 300);
             }
         }
 
-        // Close on Escape key
         document.addEventListener('keydown', function (event) {
             if (event.key === "Escape" && lightbox.classList.contains('active')) {
                 closeLightbox({ target: lightbox });

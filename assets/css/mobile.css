@@ -632,7 +632,7 @@
   .main-content {
     margin-top: var(--header-height);
     padding: 30px 20px 30px;
-    min-height: auto;
+    min-height: 20vh;
   }
   .content-title {
     margin-bottom: 10px;

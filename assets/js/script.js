@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const mainContentArea = document.getElementById("main-content-area");
         const needsMain = mainContentArea && !mainContentArea.innerHTML.trim();
 
+        // 1. Load Header immediately (independent)
         fetchComponent('header.html').then(html => {
             if (html) {
                 const headerEl = document.getElementById('global-header');
@@ -70,21 +71,22 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
+        // 2. Load Main Content FIRST
         if (needsMain) {
-            fetchComponent('homepage.html').then(html => {
-                if (html) {
-                    mainContentArea.innerHTML = html;
-                    fixRelativeLinks(mainContentArea);
-                    initObservers();
-                    // START SLIDESHOW AFTER LOADING HOME
-                    initializeSlideshow();
-                }
-            });
+            const homeHtml = await fetchComponent('homepage.html'); // Wait for this to finish
+            if (homeHtml) {
+                mainContentArea.innerHTML = homeHtml;
+                fixRelativeLinks(mainContentArea);
+                initObservers();
+                initializeSlideshow();
+            }
         } else {
+            // If main content was already static in HTML
             fixRelativeLinks(mainContentArea);
             initObservers();
         }
 
+        // 3. Load Footer ONLY AFTER Main Content is ready
         fetchComponent('footer.html').then(html => {
             if (html) {
                 const footerEl = document.getElementById('global-footer');

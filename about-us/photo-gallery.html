@@ -6,26 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Gallery - BMCRI</title>
 
-  <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="../assets/favicon.ico" sizes="32x32" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="preload" href="../assets/css/style.css" as="style">
-  <link rel="preload" href="../assets/css/mobile.css" as="style">
-  <link rel="preload" href="../assets/js/script.js" as="script">
+    <link rel="preload" href="../assets/css/style.css" as="style">
+    <link rel="preload" href="../assets/css/mobile.css" as="style">
+    <link rel="preload" href="../assets/js/script.js" as="script">
 
-  <link rel="preload" href="../header.html" as="fetch" crossorigin>
-  <link rel="preload" href="../footer.html" as="fetch" crossorigin>
+    <link rel="preload" href="../header.html" as="fetch" crossorigin>
+    <link rel="preload" href="../footer.html" as="fetch" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/mobile.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/mobile.css">
 
-  <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/theme.js"></script>
 
     <style>
         /* --- GRID & CARDS --- */
@@ -111,6 +111,8 @@
             visibility: hidden;
             pointer-events: none;
             transition: opacity 0.3s ease, visibility 0.3s;
+            /* PREVENTS SCROLLING BEHIND LIGHTBOX ON MOBILE */
+            touch-action: none; 
         }
 
         .lightbox.active {
@@ -131,6 +133,8 @@
             transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
             will-change: opacity, transform;
             backface-visibility: hidden;
+            /* Allow selection/touch on the image itself if needed */
+            user-select: none;
         }
 
         .lightbox-content.visible {
@@ -274,7 +278,9 @@
         function openLightbox(index) {
             idx = index;
             lightbox.classList.add('active');
+            // Prevent background scrolling on all devices
             document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
             loadImage();
         }
 
@@ -298,7 +304,9 @@
         window.closeLightbox = () => {
             lightbox.classList.remove('active');
             imgDisplay.classList.remove('visible');
+            // Re-enable scrolling
             document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
             setTimeout(() => imgDisplay.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", 300);
         };
 
@@ -307,6 +315,7 @@
             loadImage();
         };
 
+        /* --- KEYBOARD SUPPORT --- */
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
             if (e.key === 'Escape') window.closeLightbox();
@@ -314,9 +323,52 @@
             if (e.key === 'ArrowRight') window.changeSlide(1);
         });
 
+        /* --- CLICK TO CLOSE --- */
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) window.closeLightbox();
         });
+
+        /* --- SWIPE GESTURES --- */
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        lightbox.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, {passive: true});
+
+        lightbox.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleGesture();
+        }, {passive: true});
+
+        function handleGesture() {
+            const xDiff = touchStartX - touchEndX;
+            const yDiff = touchStartY - touchEndY;
+            const threshold = 50; // Minimum distance to trigger swipe
+
+            if (Math.abs(xDiff) > Math.abs(yDiff)) {
+                // Horizontal Swipe (Left/Right)
+                if (Math.abs(xDiff) > threshold) {
+                    if (xDiff > 0) {
+                        // Swiped Left -> Next Image
+                        window.changeSlide(1); 
+                    } else {
+                        // Swiped Right -> Prev Image
+                        window.changeSlide(-1);
+                    }
+                }
+            } else {
+                // Vertical Swipe (Up/Down)
+                if (Math.abs(yDiff) > threshold) {
+                    // Swiped Up or Down -> Close
+                    window.closeLightbox();
+                }
+            }
+        }
     });
     </script>
 </body>

@@ -351,132 +351,120 @@
     <script>window.SITE_BASE = '../';</script>
     <script src="../assets/js/script.js" defer></script>
     <script>
-        const lightbox = document.getElementById('lightbox'),
-            lightboxImg = document.getElementById('lightbox-img'),
-            lightboxLoader = document.getElementById('lightbox-loader');
-        let galleryImages = [], currentIndex = 0, currentActiveCard = null;
+document.addEventListener("DOMContentLoaded", () => {
+    // --- VARIABLES ---
+    let galleryImages = [];
+    let currentIndex = 0;
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const items = document.querySelectorAll('.gallery-item');
-            items.forEach((item, index) => {
-                const overlay = document.createElement('div');
-                overlay.className = 'gallery-overlay';
-                overlay.innerHTML = '<i class="fa-solid fa-magnifying-glass-plus"></i>';
-                item.appendChild(overlay);
-                galleryImages.push(item.querySelector('img').src);
-                item.onclick = () => openLightbox(index, item);
+    // --- ELEMENTS ---
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    // Note: Selecting by class because your HTML had duplicate IDs for the loader
+    const loader = document.querySelector('.loader'); 
+
+    // --- 1. INITIALIZATION ---
+    function initGallery() {
+        const items = document.querySelectorAll('.gallery-item img');
+        
+        if (items.length === 0) return;
+
+        items.forEach((img, index) => {
+            // Store high-res source (currently using same src, but extensible)
+            galleryImages.push(img.src);
+            
+            // Add click listener to the parent card
+            img.closest('.gallery-item').addEventListener('click', () => {
+                openLightbox(index);
             });
         });
+    }
 
-        function openLightbox(index, element) {
-            currentIndex = index;
+    // --- 2. OPEN/CLOSE LOGIC ---
+    function openLightbox(index) {
+        currentIndex = index;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Disable background scroll
+        loadImageSmoothly();
+    }
 
-            // Handle hover locking
-            if (currentActiveCard) currentActiveCard.classList.remove('locked-hover');
-            if (element) { element.classList.add('locked-hover'); currentActiveCard = element; }
-
-            // --- FIX START: Hard Reset for Android ---
-            // 1. Instantly hide the image element so it can't render the old photo
-            lightboxImg.style.visibility = 'hidden';
-            lightboxImg.style.opacity = '0';
+    window.closeLightbox = function() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Re-enable background scroll
+        
+        // Reset image state after animation to prevent "flash" on next open
+        setTimeout(() => {
             lightboxImg.classList.remove('visible');
+            lightboxImg.src = ""; 
+        }, 300);
+    };
 
-            // 2. Wipe the source. 
-            // This ensures that even if the browser tries to render, there is nothing there.
-            lightboxImg.src = "";
+    // --- 3. NAVIGATION ---
+    window.changeSlide = function(direction) {
+        currentIndex += direction;
 
-            // 3. Force the browser to process these changes NOW (Reflow)
-            void lightboxImg.offsetWidth;
-            // --- FIX END ---
+        // Wrap around logic (Infinite Loop)
+        if (currentIndex >= galleryImages.length) {
+            currentIndex = 0;
+        } else if (currentIndex < 0) {
+            currentIndex = galleryImages.length - 1;
+        }
 
-            // Now it is safe to show the black background
-            lightbox.classList.add('active');
-            document.documentElement.style.overflow = 'hidden';
-            document.body.style.overflow = 'hidden';
+        loadImageSmoothly();
+    };
 
-            // Start loading the new image
-            // Small delay ensures the 'src=""' has definitely taken effect on slower phones
+    // --- 4. NO-FLICKER IMAGE LOADER ---
+    function loadImageSmoothly() {
+        // A. Immediately hide current image and show loader
+        lightboxImg.classList.remove('visible');
+        loader.classList.remove('hidden');
+
+        const targetSrc = galleryImages[currentIndex];
+
+        // B. Preload the new image in memory first
+        const tempImage = new Image();
+        
+        tempImage.onload = () => {
+            // C. Once loaded, update the real DOM element
+            lightboxImg.src = targetSrc;
+            
+            // D. Hide loader
+            loader.classList.add('hidden');
+
+            // E. Fade image in (requestAnimationFrame ensures CSS transition catches)
             requestAnimationFrame(() => {
-                loadImage(galleryImages[currentIndex]);
+                lightboxImg.classList.add('visible');
             });
+        };
+
+        tempImage.onerror = () => {
+            // Fallback if image fails
+            loader.classList.add('hidden');
+            console.error("Failed to load image:", targetSrc);
+        };
+
+        // Start loading
+        tempImage.src = targetSrc;
+    }
+
+    // --- 5. KEYBOARD CONTROLS ---
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') window.closeLightbox();
+        if (e.key === 'ArrowLeft') window.changeSlide(-1);
+        if (e.key === 'ArrowRight') window.changeSlide(1);
+    });
+
+    // --- 6. CLOSE ON OVERLAY CLICK ---
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            window.closeLightbox();
         }
+    });
 
-        function loadImage(src) {
-            // Show Loader
-            lightboxLoader.classList.remove('hidden');
-
-            // Create virtual image to preload
-            const pre = new Image();
-            pre.src = src;
-
-            const showImage = () => {
-                lightboxImg.src = src;
-
-                // Use double requestAnimationFrame for smoothest mobile animation
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        lightboxLoader.classList.add('hidden');
-                        lightboxImg.style.visibility = 'visible';
-                        lightboxImg.classList.add('visible');
-                    });
-                });
-            };
-
-            // Attempt decode (modern) or fallback to onload (legacy)
-            if (pre.decode) {
-                pre.decode().then(showImage).catch(showImage);
-            } else {
-                pre.onload = showImage;
-            }
-        }
-
-        function closeLightbox(e) {
-            // Check if the click was on the background or the close button
-            if (!e || e.target === lightbox || e.target.classList.contains('lightbox-close')) {
-
-                lightbox.classList.remove('active');
-                document.documentElement.style.overflow = '';
-                document.body.style.overflow = '';
-
-                // Hide the image immediately so it fades out with the container
-                lightboxImg.classList.remove('visible');
-
-                if (currentActiveCard) {
-                    setTimeout(() => {
-                        currentActiveCard.classList.remove('locked-hover');
-                        currentActiveCard = null;
-                    }, 300);
-                }
-
-                // Reset everything after the fade-out animation is done
-                setTimeout(() => {
-                    lightboxImg.src = '';
-                    lightboxImg.style.visibility = 'hidden';
-                    lightboxLoader.classList.add('hidden'); // Ensure loader is hidden
-                }, 300);
-            }
-        }
-
-        function changeSlide(dir) {
-            currentIndex = (currentIndex + dir + galleryImages.length) % galleryImages.length;
-            loadImage(galleryImages[currentIndex]);
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-            if (e.key === "Escape") closeLightbox();
-            if (e.key === "ArrowLeft") changeSlide(-1);
-            if (e.key === "ArrowRight") changeSlide(1);
-        });
-
-        let tSX = 0, tSY = 0, tEX = 0, tEY = 0;
-        lightbox.addEventListener('touchstart', (e) => { tSX = e.changedTouches[0].screenX; tSY = e.changedTouches[0].screenY; }, { passive: true });
-        lightbox.addEventListener('touchend', (e) => {
-            tEX = e.changedTouches[0].screenX; tEY = e.changedTouches[0].screenY;
-            if (Math.abs(tEX - tSX) > 50 && Math.abs(tEX - tSX) > Math.abs(tEY - tSY)) changeSlide(tEX > tSX ? -1 : 1);
-            else if (tEY - tSY > 100) closeLightbox();
-        }, { passive: true });
-        lightbox.onclick = closeLightbox;
+    // Run Init
+    initGallery();
+});
     </script>
 </body>
 

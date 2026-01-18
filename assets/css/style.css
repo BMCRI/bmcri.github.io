@@ -268,7 +268,6 @@ button {
 }
 .theme-toggle:hover {
   background: rgba(255, 255, 255, 0.15);
-  border-color: var(--primary);
   transform: scale(1.05);
 }
 .theme-toggle:active {
@@ -323,7 +322,7 @@ button {
   background: var(--bg-card);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
-  padding: 4px 0;
+  padding: 6px 0 4px;
   font-size: 0.8rem;
 }
 .college-name {

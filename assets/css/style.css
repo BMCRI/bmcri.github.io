@@ -402,15 +402,81 @@ textarea {
   border-radius: 50%;
   background: rgba(59, 130, 246, 0.05);
   color: var(--text-main);
+  font-size: 1.2rem;
   transition: all 0.3s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.social-mini a:hover {
-  background: var(--primary) !important;
-  border-color: var(--primary) !important;
-  color: #fff !important;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+
+/* --- Brand Specific Colors (Hover, Focus, & Active) --- */
+
+/* Facebook */
+.social-mini a[href*="facebook.com"]:hover,
+.social-mini a[href*="facebook.com"]:focus-visible,
+.social-mini a[href*="facebook.com"]:active,
+.mobile-footer-actions .social-mini a[href*="facebook.com"]:hover,
+.mobile-footer-actions .social-mini a[href*="facebook.com"]:focus-visible,
+.mobile-footer-actions .social-mini a[href*="facebook.com"]:active {
+  background-color: #1877f2 !important;
+  border-color: #1877f2 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
+  opacity: 1 !important;
+  outline: none;
 }
+
+/* Instagram */
+.social-mini a[href*="instagram.com"]:hover,
+.social-mini a[href*="instagram.com"]:focus-visible,
+.social-mini a[href*="instagram.com"]:active,
+.mobile-footer-actions .social-mini a[href*="instagram.com"]:hover,
+.mobile-footer-actions .social-mini a[href*="instagram.com"]:focus-visible,
+.mobile-footer-actions .social-mini a[href*="instagram.com"]:active {
+  background: #d62976 !important;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  ) !important;
+  border-color: #d6249f !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  outline: none;
+}
+
+/* X (Twitter) */
+.social-mini a[href*="x.com"]:hover,
+.social-mini a[href*="x.com"]:focus-visible,
+.social-mini a[href*="x.com"]:active,
+.social-mini a[href*="twitter.com"]:hover,
+.social-mini a[href*="twitter.com"]:focus-visible,
+.social-mini a[href*="twitter.com"]:active,
+.mobile-footer-actions .social-mini a[href*="x.com"]:hover,
+.mobile-footer-actions .social-mini a[href*="x.com"]:focus-visible,
+.mobile-footer-actions .social-mini a[href*="x.com"]:active,
+.mobile-footer-actions .social-mini a[href*="twitter.com"]:hover,
+.mobile-footer-actions .social-mini a[href*="twitter.com"]:focus-visible,
+.mobile-footer-actions .social-mini a[href*="twitter.com"]:active {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  opacity: 1 !important;
+  outline: none;
+}
+
+/* Dark mode border fix for X */
+[data-theme="dark"] .social-mini a[href*="x.com"]:hover,
+[data-theme="dark"] .social-mini a[href*="x.com"]:focus-visible,
+[data-theme="dark"] .social-mini a[href*="x.com"]:active,
+[data-theme="dark"] .social-mini a[href*="twitter.com"]:hover,
+[data-theme="dark"] .social-mini a[href*="twitter.com"]:focus-visible,
+[data-theme="dark"] .social-mini a[href*="twitter.com"]:active {
+  border-color: #333333 !important;
+}
+
 .main-header {
   padding-top: 15px;
   padding-bottom: 15px;

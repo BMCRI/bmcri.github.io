@@ -367,7 +367,7 @@ textarea {
   -webkit-backdrop-filter: blur(6px);
 }
 .top-links a.highlight {
-  background: rgba(59, 130, 246, 0.05);
+  background: rgba(59, 130, 246, 0.1);
 }
 .top-links a.highlight:hover {
   background: var(--primary);
@@ -400,38 +400,39 @@ textarea {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(59, 130, 246, 0.05);
+  background: rgba(59, 130, 246, 0.1);
   color: var(--text-main);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: all 0.3s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* --- Brand Specific Colors (Hover, Focus, & Active) --- */
+/* --- Brand Specific Colors --- */
 
-/* Facebook */
-.social-mini a[href*="facebook.com"]:hover,
-.social-mini a[href*="facebook.com"]:focus-visible,
-.social-mini a[href*="facebook.com"]:active,
-.mobile-footer-actions .social-mini a[href*="facebook.com"]:hover,
-.mobile-footer-actions .social-mini a[href*="facebook.com"]:focus-visible,
-.mobile-footer-actions .social-mini a[href*="facebook.com"]:active {
-  background-color: #1877f2 !important;
-  border-color: #1877f2 !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
-  opacity: 1 !important;
-  outline: none;
+.social-mini a {
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 1;
+  border: none !important;
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.3s ease,
+    box-shadow 0.3s ease !important;
 }
 
-/* Instagram */
-.social-mini a[href*="instagram.com"]:hover,
-.social-mini a[href*="instagram.com"]:focus-visible,
-.social-mini a[href*="instagram.com"]:active,
-.mobile-footer-actions .social-mini a[href*="instagram.com"]:hover,
-.mobile-footer-actions .social-mini a[href*="instagram.com"]:focus-visible,
-.mobile-footer-actions .social-mini a[href*="instagram.com"]:active {
-  background: #d62976 !important;
+.social-mini a i {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.social-mini a[href*="instagram.com"]::before,
+.mobile-footer-actions .social-mini a[href*="instagram.com"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(
     circle at 30% 107%,
     #fdf497 0%,
@@ -439,42 +440,94 @@ textarea {
     #fd5949 45%,
     #d6249f 60%,
     #285aeb 90%
-  ) !important;
-  border-color: #d6249f !important;
+  );
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+/* Facebook */
+.social-mini a[href*="facebook.com"]:active,
+.social-mini a[href*="facebook.com"]:focus-visible,
+.mobile-footer-actions .social-mini a[href*="facebook.com"]:active,
+.mobile-footer-actions .social-mini a[href*="facebook.com"]:focus-visible {
+  background-color: #1877f2 !important;
   color: #ffffff !important;
+  transform: scale(0.95);
+  outline: none;
+}
+
+/* Instagram */
+.social-mini a[href*="instagram.com"]:active::before,
+.social-mini a[href*="instagram.com"]:focus-visible::before,
+.mobile-footer-actions .social-mini a[href*="instagram.com"]:active::before,
+.mobile-footer-actions
+  .social-mini
+  a[href*="instagram.com"]:focus-visible::before {
   opacity: 1 !important;
+}
+.social-mini a[href*="instagram.com"]:active,
+.social-mini a[href*="instagram.com"]:focus-visible,
+.mobile-footer-actions .social-mini a[href*="instagram.com"]:active,
+.mobile-footer-actions .social-mini a[href*="instagram.com"]:focus-visible {
+  color: #ffffff !important;
+  background: transparent !important;
+  transform: scale(0.95);
   outline: none;
 }
 
 /* X (Twitter) */
-.social-mini a[href*="x.com"]:hover,
-.social-mini a[href*="x.com"]:focus-visible,
 .social-mini a[href*="x.com"]:active,
-.social-mini a[href*="twitter.com"]:hover,
-.social-mini a[href*="twitter.com"]:focus-visible,
+.social-mini a[href*="x.com"]:focus-visible,
 .social-mini a[href*="twitter.com"]:active,
-.mobile-footer-actions .social-mini a[href*="x.com"]:hover,
-.mobile-footer-actions .social-mini a[href*="x.com"]:focus-visible,
+.social-mini a[href*="twitter.com"]:focus-visible,
 .mobile-footer-actions .social-mini a[href*="x.com"]:active,
-.mobile-footer-actions .social-mini a[href*="twitter.com"]:hover,
-.mobile-footer-actions .social-mini a[href*="twitter.com"]:focus-visible,
-.mobile-footer-actions .social-mini a[href*="twitter.com"]:active {
+.mobile-footer-actions .social-mini a[href*="x.com"]:focus-visible,
+.mobile-footer-actions .social-mini a[href*="twitter.com"]:active,
+.mobile-footer-actions .social-mini a[href*="twitter.com"]:focus-visible {
   background-color: #000000 !important;
-  border-color: #000000 !important;
   color: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  opacity: 1 !important;
+  transform: scale(0.95);
   outline: none;
 }
 
-/* Dark mode border fix for X */
-[data-theme="dark"] .social-mini a[href*="x.com"]:hover,
-[data-theme="dark"] .social-mini a[href*="x.com"]:focus-visible,
-[data-theme="dark"] .social-mini a[href*="x.com"]:active,
-[data-theme="dark"] .social-mini a[href*="twitter.com"]:hover,
-[data-theme="dark"] .social-mini a[href*="twitter.com"]:focus-visible,
-[data-theme="dark"] .social-mini a[href*="twitter.com"]:active {
-  border-color: #333333 !important;
+@media (hover: hover) {
+  /* Facebook Hover */
+  .social-mini a[href*="facebook.com"]:hover,
+  .mobile-footer-actions .social-mini a[href*="facebook.com"]:hover {
+    background-color: #1877f2 !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 15px rgba(24, 119, 242, 0.4);
+    transform: translateY(-2px) scale(1.05);
+    border: none !important;
+  }
+
+  /* Instagram Hover */
+  .social-mini a[href*="instagram.com"]:hover::before,
+  .mobile-footer-actions .social-mini a[href*="instagram.com"]:hover::before {
+    opacity: 1 !important;
+    border: none !important;
+  }
+  .social-mini a[href*="instagram.com"]:hover,
+  .mobile-footer-actions .social-mini a[href*="instagram.com"]:hover {
+    color: #ffffff !important;
+    box-shadow: 0 6px 15px rgba(193, 53, 132, 0.4);
+    background: transparent !important;
+    transform: translateY(-2px) scale(1.05);
+    border: none !important;
+  }
+
+  /* X (Twitter) Hover */
+  .social-mini a[href*="x.com"]:hover,
+  .social-mini a[href*="twitter.com"]:hover,
+  .mobile-footer-actions .social-mini a[href*="x.com"]:hover,
+  .mobile-footer-actions .social-mini a[href*="twitter.com"]:hover {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px) scale(1.05);
+    border: none !important;
+  }
 }
 
 .main-header {

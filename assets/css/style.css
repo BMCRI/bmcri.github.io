@@ -455,6 +455,7 @@ textarea {
   color: #ffffff !important;
   transform: scale(0.95);
   outline: none;
+  border: none !important;
 }
 
 /* Instagram */
@@ -465,6 +466,7 @@ textarea {
   .social-mini
   a[href*="instagram.com"]:focus-visible::before {
   opacity: 1 !important;
+  border: none !important;
 }
 .social-mini a[href*="instagram.com"]:active,
 .social-mini a[href*="instagram.com"]:focus-visible,
@@ -474,6 +476,7 @@ textarea {
   background: transparent !important;
   transform: scale(0.95);
   outline: none;
+  border: none !important;
 }
 
 /* X (Twitter) */
@@ -489,6 +492,7 @@ textarea {
   color: #ffffff !important;
   transform: scale(0.95);
   outline: none;
+  border: none !important;
 }
 
 @media (hover: hover) {

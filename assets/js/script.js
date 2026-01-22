@@ -147,8 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const fullSrc = `${CONFIG.baseUrl}assets/slideshow/${src}`;
 
-                // All dynamic slides are secondary, so lazy load them
-                slide.innerHTML = `<img src="${fullSrc}" alt="Slide" loading="lazy">`;
+                slide.innerHTML = `<img src="${fullSrc}" alt="Slide">`;
 
                 container.insertBefore(slide, overlay);
             });

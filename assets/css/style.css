@@ -1844,7 +1844,6 @@ textarea {
   max-height: 40vh;
   height: auto;
   display: block;
-  border-radius: 6px;
   object-fit: contain;
 }
 

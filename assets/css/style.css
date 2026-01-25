@@ -1938,7 +1938,7 @@ textarea {
 }
 
 #scrollToTopBtn.lift-up {
-  bottom: 90px !important;
+  bottom: 90px;
 }
 
 .glass-footer {

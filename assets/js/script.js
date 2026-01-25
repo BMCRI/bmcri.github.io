@@ -278,16 +278,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- 9. SCROLL TO TOP BUTTON ---
     const initScrollToTop = () => {
-        // 1. Create the button
+        // 1. Create the button with default CHEVRON icon
         const btn = document.createElement('button');
         btn.id = 'scrollToTopBtn';
         btn.ariaLabel = 'Scroll to top';
         btn.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
         document.body.appendChild(btn);
 
-        // 2. Click behavior
+        // 2. Click behavior: Swap to ARROW, scroll, then swap back
         btn.onclick = () => {
+            const icon = btn.querySelector('i');
+
+            // Visual Feedback: Change to Arrow
+            if (icon) icon.className = 'fa-solid fa-arrow-up';
+
+            // Perform Scroll
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Revert back to Chevron after 1 second (once scroll finishes)
+            setTimeout(() => {
+                if (icon) icon.className = 'fa-solid fa-chevron-up';
+            }, 1000);
         };
 
         // 3. Visibility (Show/Hide based on scroll position)

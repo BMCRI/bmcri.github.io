@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- CONFIGURATION ---
     const CONFIG = {
         slideshowUrl: "assets/slideshow/slideshow.json",
-        useCache: false,
+        useCache: true,
         baseUrl: getBaseUrl()
     };
 

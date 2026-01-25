@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     "use strict";
-    const canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (canonicalLink) {
-        canonicalLink.href = window.location.href;
-    }
 
     // --- 1. CORE UTILITY: Auto-Detect Base URL ---
     const getBaseUrl = () => {
@@ -17,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- CONFIGURATION ---
     const CONFIG = {
         slideshowUrl: "assets/slideshow/slideshow.json",
-        useCache: true,
+        useCache: false,
         baseUrl: getBaseUrl()
     };
 
@@ -61,15 +57,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- 3. COMPONENT LOADER (FIXED) ---
     const loadComponents = async () => {
-        // FIX: Select by ID *OR* by the generic <main> tag
         const mainContentArea = document.getElementById("main-content-area") || document.querySelector("main");
 
         if (mainContentArea) {
-            fixRelativeLinks(mainContentArea); // Fix broken links
-            initObservers();                   // <--- THIS MAKES CONTENT VISIBLE
+            fixRelativeLinks(mainContentArea);
+            initObservers();
         }
 
-        // Initialize Slideshow (Safe to run everywhere)
+        // Initialize Slideshow
         initializeSlideshow();
 
         // Load Header
@@ -152,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // 5. Start the Logic (Controls & Timer)
             // We re-query the DOM to include BOTH the hardcoded slide and the new ones
             const slides = container.querySelectorAll(".hero-slide");
-            let currentIndex = 0; // Starts at 0 (the hardcoded one)
+            let currentIndex = 0;
             let timer = null;
 
             const showNextSlide = () => {
@@ -169,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 timer = setTimeout(showNextSlide, delay);
             };
 
-            // Start the loop if we have more than 1 slide (1 hardcoded + others)
+            // Start the loop if we have more than 1 slide
             if (slides.length > 1) {
                 scheduleNext();
 
@@ -250,10 +245,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const initFooterInteractions = () => {
         const copyrightBar = document.querySelector('.copyright-bar');
         const themeBtn = document.getElementById('theme-toggle');
-        if (copyrightBar && themeBtn) {
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+
+        // Only create the observer if the copyright bar exists
+        if (copyrightBar) {
             const footerObserver = new IntersectionObserver(([entry]) => {
-                themeBtn.classList.toggle('lift-up', entry.isIntersecting);
+                const isVisible = entry.isIntersecting;
+
+                // Lift the theme toggle if it exists
+                if (themeBtn) themeBtn.classList.toggle('lift-up', isVisible);
+
+                // Lift the scroll button if it exists
+                if (scrollBtn) scrollBtn.classList.toggle('lift-up', isVisible);
+
             }, { threshold: 0.1 });
+
             footerObserver.observe(copyrightBar);
         }
     };
@@ -270,33 +276,52 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
+    // --- 9. SCROLL TO TOP BUTTON ---
+    const initScrollToTop = () => {
+        // 1. Create the button
+        const btn = document.createElement('button');
+        btn.id = 'scrollToTopBtn';
+        btn.ariaLabel = 'Scroll to top';
+        btn.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+        document.body.appendChild(btn);
+
+        // 2. Click behavior
+        btn.onclick = () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        // 3. Visibility (Show/Hide based on scroll position)
+        const toggleBtn = () => {
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        };
+        window.addEventListener('scroll', toggleBtn, { passive: true });
+    };
+
+    // Initialize
     loadComponents();
-    initializeAccordions();
+    initScrollToTop();
+    initializeAccordions()
 });
 
 // --- GLOBAL HELPERS ---
 let resizeTimer;
+let lastWindowWidth = window.innerWidth; // Track width to ignore vertical-only resizes
+
 const syncHeaderHeight = () => {
     const header = document.querySelector('.glass-nav');
     if (header) document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
 };
+
 window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(syncHeaderHeight, 100);
-});
-window.addEventListener('orientationchange', syncHeaderHeight);
-if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-window.addEventListener('load', () => {
-    syncHeaderHeight();
-    if (location.hash) {
-        setTimeout(() => {
-            const target = document.querySelector(location.hash);
-            if (target) {
-                const offset = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
-                const headerH = parseInt(offset) || 60;
-                const top = target.getBoundingClientRect().top + window.scrollY - headerH - 10;
-                window.scrollTo({ top: top, behavior: 'smooth' });
-            }
-        }, 100);
+    // FIX: Only sync if WIDTH changes. 
+    // This prevents the "jump" on mobile when the address bar hides/shows (which changes height but not width).
+    if (window.innerWidth !== lastWindowWidth) {
+        lastWindowWidth = window.innerWidth;
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(syncHeaderHeight, 100);
     }
 });

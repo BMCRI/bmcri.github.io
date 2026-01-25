@@ -94,7 +94,44 @@ button {
 .text-center {
   text-align: center;
 }
+.intro-text {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+/* Vertical Stack for Expandable Content (Used in Career, Tender) */
+.expand-content-box.stack-vertical {
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Button Size Fix for Mobile (Used in Career) */
+.btn-fit-content {
+  display: inline-block;
+  width: fit-content;
+  width: -moz-fit-content;
+  max-width: 100%;
+  padding: 10px 25px;
+  margin-top: 0;
+}
+
+/* Vertical Link Group (Used in NMC Info for lists of links) */
+.link-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.link-group.vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
 /* --- Department Page Overrides --- */
 
 /* Force cards to align left (overrides global .card text-align:center) */
@@ -501,7 +538,6 @@ textarea {
   .mobile-footer-actions .social-mini a[href*="facebook.com"]:hover {
     background-color: #1877f2 !important;
     color: #ffffff !important;
-    box-shadow: 0 6px 15px rgba(24, 119, 242, 0.4);
     transform: translateY(-2px) scale(1.05);
     border: none !important;
   }
@@ -515,7 +551,6 @@ textarea {
   .social-mini a[href*="instagram.com"]:hover,
   .mobile-footer-actions .social-mini a[href*="instagram.com"]:hover {
     color: #ffffff !important;
-    box-shadow: 0 6px 15px rgba(193, 53, 132, 0.4);
     background: transparent !important;
     transform: translateY(-2px) scale(1.05);
     border: none !important;
@@ -528,7 +563,6 @@ textarea {
   .mobile-footer-actions .social-mini a[href*="twitter.com"]:hover {
     background-color: #000000 !important;
     color: #ffffff !important;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
     transform: translateY(-2px) scale(1.05);
     border: none !important;
   }
@@ -1647,6 +1681,9 @@ textarea {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   font-size: 0.95rem;
   vertical-align: middle;
+}
+[data-theme="light"] .glass-table td {
+  border-bottom: 1px solid rgba(0, 0, 255, 0.05);
 }
 .glass-table tr:hover td {
   background: rgba(255, 255, 255, 0.03);

@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     "use strict";
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) {
+        canonicalLink.href = window.location.href;
+    }
 
     // --- 1. CORE UTILITY: Auto-Detect Base URL ---
     const getBaseUrl = () => {
@@ -55,12 +59,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // --- 3. COMPONENT LOADER ---
+    // --- 3. COMPONENT LOADER (FIXED) ---
     const loadComponents = async () => {
-        const mainContentArea = document.getElementById("main-content-area");
-        const needsMain = mainContentArea && !mainContentArea.innerHTML.trim();
+        // FIX: Select by ID *OR* by the generic <main> tag
+        const mainContentArea = document.getElementById("main-content-area") || document.querySelector("main");
 
-        // 1. Load Header immediately (independent)
+        if (mainContentArea) {
+            fixRelativeLinks(mainContentArea); // Fix broken links
+            initObservers();                   // <--- THIS MAKES CONTENT VISIBLE
+        }
+
+        // Initialize Slideshow (Safe to run everywhere)
+        initializeSlideshow();
+
+        // Load Header
         fetchComponent('header.html').then(html => {
             if (html) {
                 const headerEl = document.getElementById('global-header');
@@ -71,22 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // 2. Load Main Content FIRST
-        if (needsMain) {
-            const homeHtml = await fetchComponent('homepage.html'); // Wait for this to finish
-            if (homeHtml) {
-                mainContentArea.innerHTML = homeHtml;
-                fixRelativeLinks(mainContentArea);
-                initObservers();
-                initializeSlideshow();
-            }
-        } else {
-            // If main content was already static in HTML
-            fixRelativeLinks(mainContentArea);
-            initObservers();
-        }
-
-        // 3. Load Footer ONLY AFTER Main Content is ready
+        // Load Footer
         fetchComponent('footer.html').then(html => {
             if (html) {
                 const footerEl = document.getElementById('global-footer');

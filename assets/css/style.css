@@ -189,13 +189,12 @@ button {
 }
 .col-name {
   width: 30%;
-  text-align: center;
 }
 .col-desig {
-  width: 15%;
+  width: 18%;
 }
 .col-qual {
-  width: 15%;
+  width: 12%;
 }
 .col-reg {
   width: 20%;
@@ -1665,7 +1664,7 @@ textarea {
 }
 .glass-table th {
   padding: 18px 20px;
-  text-align: left;
+  text-align: center;
   font-family: var(--font-heading);
   font-weight: 700;
   color: var(--text-main);

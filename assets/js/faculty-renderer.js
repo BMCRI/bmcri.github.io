@@ -45,8 +45,8 @@ function renderFacultyTable(facultyData, tableBodyId = "faculty-table-body", fol
         // UPDATED: Prepend folderPath to the image src
         return `
             <tr>
-                <td style="text-align:center;">${index + 1}</td>
-                <td class="photo-col" style="text-align:center;">
+                <td class="text-center">${index + 1}</td>
+                <td class="photo-col text-center">
                     <img 
                         src="${folderPath}${member.srno}.jpg" 
                         alt="${member.name}" 
@@ -56,9 +56,9 @@ function renderFacultyTable(facultyData, tableBodyId = "faculty-table-body", fol
                     >
                 </td>
                 <td style="font-weight:600;color:var(--text-main);">${member.name}</td>
-                <td>${member.designation}</td>
-                <td>${member.qual}</td>
-                <td style="line-height:1.6;">${registrationInfo || "-"}</td>
+                <td class="text-center">${member.designation}</td>
+                <td class="text-center">${member.qual}</td>
+                <td class="text-center" style="line-height:1.6;">${registrationInfo || "-"}</td>
             </tr>
         `;
     }).join("");

@@ -717,6 +717,10 @@
 }
 
 @media (max-width: 768px) {
+  .glow {
+    filter: blur(60px);
+    opacity: 0.4;
+  }
   .container-wide {
     padding-left: 20px !important;
     padding-right: 20px !important;

@@ -681,7 +681,7 @@
   }
 
   #scrollToTopBtn.lift-up {
-    bottom: 15px;
+    bottom: 20px !important;
   }
 }
 
@@ -882,10 +882,6 @@
   /* --- Footer & Misc --- */
   .copyright-bar {
     gap: 10px;
-  }
-
-  #scrollToTopBtn.lift-up {
-    bottom: 15px;
   }
 
   .dev-wrapper {

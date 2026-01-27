@@ -518,13 +518,21 @@ textarea {
 /* X (Twitter) */
 .social-mini a[href*="x.com"]:active,
 .social-mini a[href*="x.com"]:focus-visible,
-.social-mini a[href*="twitter.com"]:active,
-.social-mini a[href*="twitter.com"]:focus-visible,
 .mobile-footer-actions .social-mini a[href*="x.com"]:active,
-.mobile-footer-actions .social-mini a[href*="x.com"]:focus-visible,
-.mobile-footer-actions .social-mini a[href*="twitter.com"]:active,
-.mobile-footer-actions .social-mini a[href*="twitter.com"]:focus-visible {
+.mobile-footer-actions .social-mini a[href*="x.com"]:focus-visible {
   background-color: #000000 !important;
+  color: #ffffff !important;
+  transform: scale(0.95);
+  outline: none;
+  border: none !important;
+}
+
+/* LinkedIn */
+.social-mini a[href*="linkedin.com"]:active,
+.social-mini a[href*="linkedin.com"]:focus-visible,
+.mobile-footer-actions .social-mini a[href*="linkedin.com"]:active,
+.mobile-footer-actions .social-mini a[href*="linkedin.com"]:focus-visible {
+  background-color: #0077b5 !important;
   color: #ffffff !important;
   transform: scale(0.95);
   outline: none;
@@ -561,6 +569,15 @@ textarea {
   .mobile-footer-actions .social-mini a[href*="x.com"]:hover,
   .mobile-footer-actions .social-mini a[href*="twitter.com"]:hover {
     background-color: #000000 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) scale(1.05);
+    border: none !important;
+  }
+
+  /* LinkedIn Hover */
+  .social-mini a[href*="linkedin.com"]:hover,
+  .mobile-footer-actions .social-mini a[href*="linkedin.com"]:hover {
+    background-color: #0077b5 !important;
     color: #ffffff !important;
     transform: translateY(-2px) scale(1.05);
     border: none !important;

@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // --- 3. COMPONENT LOADER (FIXED) ---
+    // --- 3. COMPONENT LOADER ---
     const loadComponents = async () => {
         const mainContentArea = document.getElementById("main-content-area") || document.querySelector("main");
 
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             finalImages.forEach((src) => {
                 const slide = document.createElement("div");
-                slide.className = "hero-slide"; // No 'active' class, the HTML one has it
+                slide.className = "hero-slide";
 
                 const fullSrc = `${CONFIG.baseUrl}assets/slideshow/${src}`;
 
@@ -320,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // --- GLOBAL HELPERS ---
 let resizeTimer;
-let lastWindowWidth = window.innerWidth; // Track width to ignore vertical-only resizes
+let lastWindowWidth = window.innerWidth;
 
 const syncHeaderHeight = () => {
     const header = document.querySelector('.glass-nav');
@@ -328,8 +328,6 @@ const syncHeaderHeight = () => {
 };
 
 window.addEventListener('resize', () => {
-    // FIX: Only sync if WIDTH changes. 
-    // This prevents the "jump" on mobile when the address bar hides/shows (which changes height but not width).
     if (window.innerWidth !== lastWindowWidth) {
         lastWindowWidth = window.innerWidth;
         clearTimeout(resizeTimer);

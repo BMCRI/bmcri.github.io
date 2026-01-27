@@ -347,7 +347,7 @@ button {
   cursor: pointer;
 }
 .theme-toggle.lift-up {
-  bottom: 90px !important;
+  bottom: 100px !important;
 }
 #global-header {
   min-height: 80px;
@@ -1955,7 +1955,7 @@ textarea {
 }
 
 #scrollToTopBtn.lift-up {
-  bottom: 90px;
+  bottom: 100px;
 }
 
 .glass-footer {
